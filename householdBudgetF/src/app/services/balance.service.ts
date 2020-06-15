@@ -1,10 +1,12 @@
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Balance} from "../model/Balance";
+import {Injectable} from '@angular/core';
 
-export class AuthService {
+@Injectable()
+export class BalanceService {
 
-  baseurl = "http://localhost:8080/api";
+  baseUrl = 'http://localhost:8080/api';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -16,11 +18,11 @@ export class AuthService {
   }
 
   public getBalances(): Observable<Balance> {
-    return this.httpClient.get<Balance>(this.baseurl + "/balance");
+    return this.httpClient.get<Balance>(this.baseUrl + '/balance');
   }
 
   public generate(): Observable<Balance> {
-    return this.httpClient.get<Balance>(this.baseurl + "/balance/generate");
+    return this.httpClient.get<Balance>(this.baseUrl + '/balance/generate');
   }
 
 }
