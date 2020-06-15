@@ -2,37 +2,37 @@
   {
     "id": 1,
     "household": 1,
-    "category": "INCOME",
-    "startDate": "2020-02-01",
-    "endDate": "2021-02-01",
-    "amount": 6000.00,
-    "description": "pensja standardowa"
+    "category": "PREDICTION",
+    "generationDate": "2020-06-01",
+    "burden": 2000.00,
+    "income": 6000.00,
+    "balance": 5000.00
   },
   {
     "id": 2,
     "household": 1,
-    "category": "INCOME",
-    "startDate": "2020-02-01",
-    "endDate": "2021-02-01",
-    "amount": 4000.00,
-    "description": "pensja dodatkowa"
+    "category": "SUMMARY",
+    "generationDate": "2020-06-1",
+    "burden": 2000.00,
+    "income": 6000.00,
+    "balance": 5000.00
   },
   {
     "id": 3,
     "household": 1,
-    "category": "EXPENSE",
-    "startDate": "2020-02-01",
-    "endDate": "2021-02-01",
-    "amount": 3000.00,
-    "description": "na zycie"
+    "category": "GENERATED",
+    "generationDate": "2020-06-10",
+    "burden": 3000.00,
+    "income": 6000.00,
+    "balance": 4000.00
   },
   {
     "id": 4,
     "household": 1,
-    "category": "EXPENSE",
-    "startDate": "2020-02-01",
-    "endDate": "2021-02-01",
-    "amount": 1000.00,
-    "description": "na uczelnie"
+    "category": "GENERATED",
+    "generationDate": "2020-06-15",
+    "burden": 3000.00,
+    "income": 7000.00,
+    "balance": 5000.00
   }
 ]
