@@ -4,9 +4,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './app-navbar.component.html'
+  templateUrl: './app-navbar.component.html',
+  styleUrls: ['./app-navbar.component.css']
 })
-export class AppNavbarComponent{
+export class AppNavbarComponent {
 
   constructor(private router: Router) {
   }

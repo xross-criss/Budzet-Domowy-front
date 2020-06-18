@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppLoginComponent} from './component/login/app-login.component';
 import {MatCardModule} from '@angular/material/card';
-import {AppBilansComponent} from './component/bilans/app-bilans.component';
+import {AppBalanceComponent} from './component/balance/app-balance.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -21,14 +21,19 @@ import {MatListModule} from '@angular/material/list';
 import {BalanceService} from './services/balance.service';
 import {AppNavbarComponent} from './component/navbar/app-navbar.component';
 import {UserService} from './services/user.service';
+import {AppIncomesComponent} from "./component/incomes/app-incomes.component";
+import {AppExpensesComponent} from "./component/expenses/app-expenses.component";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLoginComponent,
-    AppBilansComponent,
+    AppBalanceComponent,
     AppHomeComponent,
-    AppNavbarComponent
+    AppNavbarComponent,
+    AppIncomesComponent,
+    AppExpensesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import {UserService} from './services/user.service';
     FormsModule,
     MatProgressSpinnerModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [
     AuthService,
@@ -53,4 +59,5 @@ import {UserService} from './services/user.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
