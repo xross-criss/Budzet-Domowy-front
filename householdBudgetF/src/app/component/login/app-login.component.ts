@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Observable} from 'rxjs';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {BalanceService} from '../../services/balance.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,17 +20,19 @@ export class AppLoginComponent {
   loading = false;
   error = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   public login(): void {
     this.loading = true;
     this.error = false;
     this.authService.authorize(this.loginForm.value.username, this.loginForm.value.password)
-      .then(() => {
+      .then(token => {
         this.loading = false;
+        localStorage.setItem('token', token.token);
+        this.router.navigate(['/']);
       })
-      .catch(() => {
+      .catch(err => {
         this.loading = false;
         this.error = true;
       });

@@ -1,0 +1,19 @@
+<div>
+  <mat-menu>
+    <button mat-menu-item>Strona Główna</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="belowMenu">Twoje Gospodarstwo Domowe</button>
+  <button mat-button (click)="logout()">Wyloguj</button>
+
+
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item>Raporty Bilansu</button>
+    <button mat-menu-item>Wydatki</button>
+    <button mat-menu-item>Przychody</button>
+  </mat-menu>
+
+  <mat-menu>
+    <button mat-menu-item>Ustawienia</button>
+  </mat-menu>
+</div>

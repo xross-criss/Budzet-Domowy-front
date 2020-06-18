@@ -9,11 +9,11 @@ export class TokenGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (!!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token')) {
       this.router.navigate(['/login']);
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
 }

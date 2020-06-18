@@ -8,12 +8,6 @@ export class BalanceService {
 
   baseUrl = 'http://localhost:8080/api';
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
   constructor(private httpClient: HttpClient) {
   }
 
@@ -23,6 +17,15 @@ export class BalanceService {
 
   public generate(): Observable<Balance> {
     return this.httpClient.get<Balance>(this.baseUrl + '/balance/generate');
+  }
+
+  public httpOptions() {
+    return ({
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'x-auth-token': localStorage.getItem('token')
+      })
+    });
   }
 
 }

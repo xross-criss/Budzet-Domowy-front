@@ -1,3 +1,3 @@
-enum BalanceType {
+export enum BalanceType {
   PREDICITON, SUMMARY, GENERATED
 }

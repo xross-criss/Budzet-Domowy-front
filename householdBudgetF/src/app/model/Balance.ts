@@ -1,4 +1,5 @@
 import {Household} from './Household';
+import {BalanceType} from './dictionary/BalanceType';
 
 export class Balance {
   constructor(

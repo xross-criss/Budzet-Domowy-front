@@ -15,12 +15,19 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {AppHomeComponent} from './component/home/app-home.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import {BalanceService} from './services/balance.service';
+import {AppNavbarComponent} from './component/navbar/app-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLoginComponent,
-    AppBilansComponent
+    AppBilansComponent,
+    AppHomeComponent,
+    AppNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +41,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatListModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    BalanceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

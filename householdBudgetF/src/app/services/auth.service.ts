@@ -1,6 +1,6 @@
-import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from '@angular/core';
+import {Token} from '../model/Token';
 
 @Injectable()
 export class AuthService {
@@ -16,8 +16,9 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public authorize(username: string, password: string): Promise<string> {
-    return this.httpClient.post<string>(this.baseUrl + '/authenticate', {username, password}, this.httpOptions).toPromise();
+  public authorize(username: string, password: string): Promise<Token> {
+    return this.httpClient.post<Token>(this.baseUrl + '/authenticate', {login: username, password}, this.httpOptions)
+      .toPromise();
   }
 
 }
