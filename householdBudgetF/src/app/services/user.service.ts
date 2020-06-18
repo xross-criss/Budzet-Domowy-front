@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Cashflow} from "../model/Cashflow";
 import {User} from "../model/User";
 
-export class AuthService {
+export class UserService {
 
   baseurl = "http://localhost:8080/api";
 
