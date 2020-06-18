@@ -1,4 +1,5 @@
 import {Household} from "./Household";
+import {UserRole} from './dictionary/UserRole';
 
 export class User {
   constructor(

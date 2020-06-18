@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {BalanceService} from '../../services/balance.service';
 import {Balance} from '../../model/Balance';
-import {Router} from '@angular/router';
+import {BalanceType} from '../../model/dictionary/BalanceType';
+import {UserService} from '../../services/user.service';
+import {User} from '../../model/User';
 
 @Component({
   selector: 'app-home',
@@ -10,20 +12,33 @@ import {Router} from '@angular/router';
 })
 export class AppHomeComponent implements OnInit {
 
-  public balance: Balance;
+  public summary: Balance;
+  public users: User[];
+  public username: string = localStorage.getItem('token').split(':')[0];
 
-  constructor(private balanceService: BalanceService) {
+  constructor(private balanceService: BalanceService, private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.balanceService.getBalances()
       .toPromise()
       .then(balance => {
-        this.balance = balance;
+        this.summary = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
+        console.log(this.summary, balance);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+      .then(() => this.userService.getAllUsersForHousehold().toPromise())
+      .then(users => {
+        this.users = users;
+        console.log(this.users);
       })
       .catch(err => {
         console.log(err);
       });
   }
+
+
 
 }

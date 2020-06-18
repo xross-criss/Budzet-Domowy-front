@@ -20,6 +20,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {BalanceService} from './services/balance.service';
 import {AppNavbarComponent} from './component/navbar/app-navbar.component';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {AppNavbarComponent} from './component/navbar/app-navbar.component';
   ],
   providers: [
     AuthService,
-    BalanceService
+    BalanceService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
