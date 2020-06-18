@@ -1,27 +1,29 @@
 <app-navbar></app-navbar>
+<mat-divider></mat-divider>
+
+<h1 class="main-page-header">Strona Główna</h1>
 
 <mat-card class="main-page">
   <mat-card-header class="main-page-title">
-    Strona Główna
   </mat-card-header>
   <mat-card-title>
     Witaj {{username}} na stronie swojego Gospodarstwa Domowego!
   </mat-card-title>
   <mat-card-content *ngIf="summary">
-    <p>
+    <h3>
       Oto twoje podsumowanie:
-    </p>
-    <p>
+    </h3>
+    <h3>
       Przychody: {{summary.income}}zł
-    </p>
-    <p>
+    </h3>
+    <h3>
       Obciążenia: {{summary.burden}}zł
-    </p>
-    <p>
-      Członkowie twojego gospodarstwa:
+    </h3>
+    <h3>Członkowie twojego gospodarstwa:</h3>
+    <mat-list>
       <mat-list-item *ngFor="let user of users">
         {{user.name}}
       </mat-list-item>
-    </p>
+    </mat-list>
   </mat-card-content>
 </mat-card>

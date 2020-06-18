@@ -12,7 +12,7 @@ export class AppNavbarComponent{
   }
 
   public logout(): void {
-    localStorage.setItem('token', null);
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 

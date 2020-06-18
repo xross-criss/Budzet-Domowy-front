@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   public authorize(username: string, password: string): Promise<Token> {
-    return this.httpClient.post<Token>(this.baseUrl + '/authenticate', {login: username, password}, this.httpOptions())
+    return this.httpClient.post<Token>(this.baseUrl + '/authenticate', {login: username, password})
       .toPromise();
   }
 
