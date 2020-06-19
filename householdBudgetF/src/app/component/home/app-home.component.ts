@@ -15,7 +15,7 @@ export class AppHomeComponent implements OnInit {
   public summary: Balance;
   public users: User[];
   public username: string = localStorage.getItem('token').split(':')[0];
-  // public loggedInUser: User = this.users.find(user => user.login == this.username);
+  public loggedInUser: User;
 
   constructor(private balanceService: BalanceService, private userService: UserService) {
   }
@@ -34,6 +34,7 @@ export class AppHomeComponent implements OnInit {
       .then(users => {
         this.users = users;
         console.log(this.users);
+        this.loggedInUser = this.users.find(user => user.login === this.username);
       })
       .catch(err => {
         console.log(err);
