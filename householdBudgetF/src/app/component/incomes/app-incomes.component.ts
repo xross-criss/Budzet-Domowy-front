@@ -17,7 +17,7 @@ export class AppIncomesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cashflowService.getCashflowListWithCategory(CashflowCategory.INCOME.toString())
+    this.cashflowService.getCashflowListWithCategory("INCOME")
       .toPromise()
       .then(cashflow => {
         this.incomes.concat(cashflow);

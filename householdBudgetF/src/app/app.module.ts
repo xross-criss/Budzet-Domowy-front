@@ -26,6 +26,8 @@ import {AppExpensesComponent} from "./component/expenses/app-expenses.component"
 import {MatTableModule} from "@angular/material/table";
 import {AppSettingsComponent} from "./component/settings/app-settings.component";
 import {AppHouseholdSettingComponent} from "./component/household-settings/app-household-settings.component";
+import {CashflowService} from "./services/cashflow.service";
+import {HouseholdService} from "./services/household.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import {AppHouseholdSettingComponent} from "./component/household-settings/app-h
   providers: [
     AuthService,
     BalanceService,
-    UserService
+    UserService,
+    CashflowService,
+    HouseholdService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,9 @@
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Cashflow} from "../model/Cashflow";
+import {Injectable} from "@angular/core";
 
+@Injectable({providedIn: 'root'})
 export class CashflowService {
 
   baseurl = "http://localhost:8080/api";
