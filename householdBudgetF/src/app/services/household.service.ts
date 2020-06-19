@@ -2,6 +2,7 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Household} from "../model/Household";
 import {Injectable} from "@angular/core";
+import {AuthService} from './auth.service';
 
 @Injectable({providedIn: 'root'})
 export class HouseholdService {
@@ -14,11 +15,11 @@ export class HouseholdService {
     })
   };
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
   }
 
   public getHousehold(): Observable<Household> {
-    return this.httpClient.get<Household>(this.baseurl);
+    return this.httpClient.get<Household>(this.baseurl, this.authService.httpOptions());
   }
 
 }
