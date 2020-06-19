@@ -10,20 +10,24 @@
     Witaj {{username}} na stronie swojego Gospodarstwa Domowego!
   </mat-card-title>
   <mat-card-content *ngIf="summary">
-    <h3>
-      Oto twoje podsumowanie:
-    </h3>
-    <h3>
-      Przychody: {{summary.income}}zł
-    </h3>
-    <h3>
-      Obciążenia: {{summary.burden}}zł
-    </h3>
-    <h3>Członkowie twojego gospodarstwa:</h3>
-    <mat-list>
-      <mat-list-item *ngFor="let user of users">
-        {{user.name}}
-      </mat-list-item>
-    </mat-list>
+    <div class="main-page-col">
+      <h3>
+        Oto twoje podsumowanie:
+      </h3>
+      <h3>
+        Przychody: {{summary.income}}zł
+      </h3>
+      <h3>
+        Obciążenia: {{summary.burden}}zł
+      </h3>
+    </div>
+    <div class="main-page-col">
+      <h3>Członkowie twojego gospodarstwa:</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let user of users">
+          {{user.name}}
+        </mat-list-item>
+      </mat-list>
+    </div>
   </mat-card-content>
 </mat-card>
