@@ -25,6 +25,7 @@ import {AppIncomesComponent} from "./component/incomes/app-incomes.component";
 import {AppExpensesComponent} from "./component/expenses/app-expenses.component";
 import {MatTableModule} from "@angular/material/table";
 import {AppSettingsComponent} from "./component/settings/app-settings.component";
+import {AppHouseholdSettingComponent} from "./component/household-settings/app-household-settings.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {AppSettingsComponent} from "./component/settings/app-settings.component"
     AppNavbarComponent,
     AppIncomesComponent,
     AppExpensesComponent,
-    AppSettingsComponent
+    AppSettingsComponent,
+    AppHouseholdSettingComponent
   ],
   imports: [
     BrowserModule,

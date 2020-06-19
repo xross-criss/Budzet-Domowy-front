@@ -9,18 +9,14 @@
   <mat-card-title>
 
   </mat-card-title>
-  <mat-card-content *ngIf="household">
+  <mat-card-content *ngIf="user">
     <h3>
-      Oto twoje podsumowanie:
+      Imie: {{user.name}}
+      email: {{user.email}}
     </h3>
     <h3>
-      Koszty podstawowe gospodarstwa domowego: {{household.cost}}zł
+      Zarejestrowany od: {{user.registrationDate}}
+      Ostatnie nieudane logowanie: {{user.lastFailedLogin}}
     </h3>
-    <h3>Członkowie twojego gospodarstwa - {{household.population}}:</h3>
-    <mat-list>
-      <mat-list-item *ngFor="let user of users">
-        {{user.name}}
-      </mat-list-item>
-    </mat-list>
   </mat-card-content>
 </mat-card>

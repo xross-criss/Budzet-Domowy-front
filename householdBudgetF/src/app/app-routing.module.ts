@@ -7,6 +7,7 @@ import {AppHomeComponent} from './component/home/app-home.component';
 import {AppExpensesComponent} from "./component/expenses/app-expenses.component";
 import {AppIncomesComponent} from "./component/incomes/app-incomes.component";
 import {AppSettingsComponent} from "./component/settings/app-settings.component";
+import {AppHouseholdSettingComponent} from "./component/household-settings/app-household-settings.component";
 
 const routes: Routes = [
   {path: 'login', component: AppLoginComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'balance', component: AppBalanceComponent, canActivate: [TokenGuard]},
   {path: 'expenses', component: AppExpensesComponent, canActivate: [TokenGuard]},
   {path: 'incomes', component: AppIncomesComponent, canActivate: [TokenGuard]},
-  {path: 'settings', component: AppSettingsComponent, canActivate: [TokenGuard]}
+  {path: 'settings', component: AppSettingsComponent, canActivate: [TokenGuard]},
+  {path: 'householdsettings', component: AppHouseholdSettingComponent, canActivate: [TokenGuard]}
 ];
 
 @NgModule({

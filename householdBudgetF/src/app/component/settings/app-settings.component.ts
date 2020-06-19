@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../model/User";
 import {UserService} from "../../services/user.service";
-import {Household} from "../../model/Household";
-import {HouseholdService} from "../../services/household.service";
 
 @Component({
   selector: 'app-settings',
@@ -11,25 +9,16 @@ import {HouseholdService} from "../../services/household.service";
 })
 export class AppSettingsComponent implements OnInit {
 
-  public users: User[];
-  public household: Household;
+  public user: User;
 
-  constructor(private householdService: HouseholdService, private userService: UserService) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.householdService.getHousehold().toPromise()
-      .then(household => {
-        this.household = household;
-        console.log(this.household);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .then(() => this.userService.getAllUsersForHousehold().toPromise())
-      .then(users => {
-        this.users = users;
-        console.log(this.users);
+    this.userService.getUser().toPromise()
+      .then(user => {
+        this.user = user;
+        console.log(this.user);
       })
       .catch(err => {
         console.log(err);

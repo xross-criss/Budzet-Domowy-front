@@ -17,4 +17,8 @@ export class UserService {
     return this.httpClient.get<User[]>(this.baseurl + "/user/household", this.authService.httpOptions());
   }
 
+  public getUser(): Observable<User> {
+    return this.httpClient.get<User>(this.baseurl + "/user/details", this.authService.httpOptions());
+  }
+
 }
