@@ -4,6 +4,7 @@ import {Observable, of} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 import {Injectable} from "@angular/core";
 
+@Injectable({providedIn: 'root'})
 export class TokenInterceptor implements HttpInterceptor {
   constructor(public authService: AuthService) {
   }

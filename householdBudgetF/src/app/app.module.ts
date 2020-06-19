@@ -13,7 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AppHomeComponent} from './component/home/app-home.component';
 import {MatMenuModule} from '@angular/material/menu';
@@ -28,6 +28,7 @@ import {AppSettingsComponent} from "./component/settings/app-settings.component"
 import {AppHouseholdSettingComponent} from "./component/household-settings/app-household-settings.component";
 import {CashflowService} from "./services/cashflow.service";
 import {HouseholdService} from "./services/household.service";
+import {TokenInterceptor} from "./guard/token-interceptor";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {HouseholdService} from "./services/household.service";
     BalanceService,
     UserService,
     CashflowService,
-    HouseholdService
+    HouseholdService,
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
