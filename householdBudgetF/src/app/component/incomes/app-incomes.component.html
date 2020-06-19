@@ -1,1 +1,17 @@
 <app-navbar></app-navbar>
+<mat-divider></mat-divider>
+
+<h1 class="main-page-header">Przychody</h1>
+
+<mat-card class="main-page">
+  <mat-card-content *ngIf="incomes">
+    <mat-list>
+      <mat-list-item *ngFor="let income of incomes">
+        data rozpoczęcia: {{income.startDate}}
+        data zakończenia: {{income.endDate}}
+        kwota: {{income.amount}}
+        opis: {{income.description}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

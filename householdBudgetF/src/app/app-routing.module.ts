@@ -10,11 +10,11 @@ import {AppSettingsComponent} from "./component/settings/app-settings.component"
 
 const routes: Routes = [
   {path: 'login', component: AppLoginComponent},
+  {path: '', component: AppHomeComponent, canActivate: [TokenGuard]},
   {path: 'balance', component: AppBalanceComponent, canActivate: [TokenGuard]},
   {path: 'expenses', component: AppExpensesComponent, canActivate: [TokenGuard]},
   {path: 'incomes', component: AppIncomesComponent, canActivate: [TokenGuard]},
-  {path: 'settings', component: AppSettingsComponent, canActivate: [TokenGuard]},
-  {path: '', component: AppHomeComponent, canActivate: [TokenGuard]}
+  {path: 'settings', component: AppSettingsComponent, canActivate: [TokenGuard]}
 ];
 
 @NgModule({

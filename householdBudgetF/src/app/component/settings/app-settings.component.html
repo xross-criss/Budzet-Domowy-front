@@ -1,1 +1,26 @@
 <app-navbar></app-navbar>
+<mat-divider></mat-divider>
+
+<h1 class="main-page-header">Ustawienia</h1>
+
+<mat-card class="main-page">
+  <mat-card-header class="main-page-title">
+  </mat-card-header>
+  <mat-card-title>
+
+  </mat-card-title>
+  <mat-card-content *ngIf="household">
+    <h3>
+      Oto twoje podsumowanie:
+    </h3>
+    <h3>
+      Koszty podstawowe gospodarstwa domowego: {{household.cost}}zł
+    </h3>
+    <h3>Członkowie twojego gospodarstwa - {{household.population}}:</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let user of users">
+        {{user.name}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

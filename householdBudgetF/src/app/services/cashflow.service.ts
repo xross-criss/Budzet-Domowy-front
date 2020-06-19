@@ -2,7 +2,7 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Cashflow} from "../model/Cashflow";
 
-export class AuthService {
+export class CashflowService {
 
   baseurl = "http://localhost:8080/api";
 
@@ -19,4 +19,7 @@ export class AuthService {
     return this.httpClient.get<Cashflow>(this.baseurl + "/cashflow");
   }
 
+  public getCashflowListWithCategory(category: any) {
+    return this.httpClient.get<Cashflow>(this.baseurl + "/cashflow?cat=" + category);
+  }
 }
