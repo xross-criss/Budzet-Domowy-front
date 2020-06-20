@@ -1,9 +1,5 @@
-export class Household {
-  constructor(
-    public id: number,
-    public population: number,
-    public cost: number,
-  ) {
-
-  }
+export interface Household {
+  id: number,
+  population: number,
+  cost: number,
 }

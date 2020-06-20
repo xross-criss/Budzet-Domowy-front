@@ -1,18 +1,14 @@
-import {Household} from "./Household";
+import {Household} from './Household';
 
-export class Insurance {
-  constructor(
-    public id: number,
-    public household: Household,
-    public type: InsuranceType,
-    public description: string,
-    public interval: number,
-    public cost: number,
-    public endDate: Date,
-    public name: string,
-    public vehicleTID: string,
-    public vehicleLP: string,
-  ) {
-
-  }
+export interface Insurance {
+  id: number,
+  household: Household,
+  type: InsuranceType,
+  description: string,
+  interval: number,
+  cost: number,
+  endDate: Date,
+  name: string,
+  vehicleTID: string,
+  vehicleLP: string,
 }

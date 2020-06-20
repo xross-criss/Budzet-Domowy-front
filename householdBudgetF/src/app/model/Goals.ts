@@ -1,16 +1,11 @@
-import {Household} from "./Household";
+import {Household} from './Household';
 
-export class Goals {
-
-  constructor(
-    public id: number,
-    public household: Household,
-    public category: GoalCategory,
-    public amount: number,
-    public name: string,
-    public description: string,
-    public priority: number,
-  ) {
-
-  }
+export interface Goals {
+  id: number,
+  household: Household,
+  category: GoalCategory,
+  amount: number,
+  name: string,
+  description: string,
+  priority: number,
 }

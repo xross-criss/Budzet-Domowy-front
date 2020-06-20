@@ -1,8 +1,4 @@
-export class Authentication {
-  constructor(
-    public login: string,
-    public password: string
-  ) {
-
-  }
+export interface Authentication {
+  login: string,
+  password: string,
 }
