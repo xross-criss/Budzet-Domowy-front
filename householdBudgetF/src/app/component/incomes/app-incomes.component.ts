@@ -9,7 +9,6 @@ import {CashflowService} from '../../services/cashflow.service';
 export class AppIncomesComponent implements OnInit {
 
   public incomes: Cashflow[];
-  public username: string = localStorage.getItem('token').split(':')[0];
 
   constructor(private cashflowService: CashflowService) {
   }

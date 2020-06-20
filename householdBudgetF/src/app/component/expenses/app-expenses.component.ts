@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Cashflow} from '../../model/Cashflow';
+import {CashflowService} from '../../services/cashflow.service';
 
 @Component({
   selector: 'app-expenses',
@@ -6,9 +8,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppExpensesComponent implements OnInit {
 
+  public expenses: Cashflow[];
 
-
-  ngOnInit(): void {
+  constructor(private cashflowService: CashflowService) {
   }
 
+  ngOnInit(): void {
+    this.cashflowService.getCashflowListWithCategory('EXPENSE').subscribe(expenses => {
+      this.expenses = expenses;
+    });
+  }
 }

@@ -13,14 +13,18 @@
     <h3>
       Oto twoje podsumowanie:
     </h3>
-    <h3>
-      Koszty podstawowe gospodarstwa domowego: {{household.cost}}zł
-    </h3>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        Koszty podstawowe gospodarstwa domowego: <mat-label></mat-label>
+        <input type="number" matInput placeholder="Ex. Pizza" [(ngModel)]="household.cost" [ngModelOptions]="{standalone:true}">
+      </mat-form-field>
+    </form>
     <h3>Członkowie twojego gospodarstwa - {{household.population}}:</h3>
     <mat-list>
       <mat-list-item *ngFor="let user of users">
         {{user.name}}
       </mat-list-item>
     </mat-list>
+    <button mat-button (click)="saveHousehold()">Zapisz</button>
   </mat-card-content>
 </mat-card>

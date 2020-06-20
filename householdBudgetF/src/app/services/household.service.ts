@@ -13,4 +13,8 @@ export class HouseholdService {
     return this.apiService.get<Household>('household');
   }
 
+  public updateHousehold(household:Household): Observable<Household> {
+    return this.apiService.post<Household>('household', household);
+  }
+
 }

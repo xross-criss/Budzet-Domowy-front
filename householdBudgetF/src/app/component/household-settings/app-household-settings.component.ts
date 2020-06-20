@@ -28,4 +28,10 @@ export class AppHouseholdSettingComponent implements OnInit {
     });
   }
 
+  saveHousehold(): void {
+    this.householdService.updateHousehold(this.household).subscribe(household => {
+      this.household = household;
+    });
+  }
+
 }

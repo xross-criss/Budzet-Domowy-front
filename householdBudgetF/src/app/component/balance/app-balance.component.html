@@ -1,1 +1,23 @@
 <app-navbar></app-navbar>
+<mat-divider></mat-divider>
+
+<h1 class="main-page-header">Raporty Bilansu</h1>
+
+<mat-card class="main-page">
+  <mat-card-content *ngIf="balances">
+    <button mat-button color="primary" (click)="generate()">Generuj</button>
+    <mat-list>
+      <div>
+        <table>
+          <tr *ngFor="let balance of balances">
+            <td>typ: {{balance.type}}</td>
+            <td>data wygenerowania: {{balance.generationDate}}</td>
+            <td>przychód: {{balance.burden}}</td>
+            <td>wydatki: {{balance.income}}</td>
+            <td>bilans: {{balance.balance}}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
