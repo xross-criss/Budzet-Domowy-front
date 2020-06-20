@@ -57,7 +57,7 @@ import {TokenInterceptor} from "./guard/token-interceptor";
     MatProgressSpinnerModule,
     MatMenuModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [
     AuthService,

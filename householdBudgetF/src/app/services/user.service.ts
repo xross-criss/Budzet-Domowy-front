@@ -1,24 +1,20 @@
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Cashflow} from "../model/Cashflow";
-import {User} from "../model/User";
-import {AuthService} from './auth.service';
+import {User} from '../model/User';
 import {Injectable} from '@angular/core';
+import {ApiService} from './api.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class UserService {
 
-  baseurl = "http://localhost:8080/api";
-
-  constructor(private httpClient: HttpClient, private authService: AuthService) {
+  constructor(private apiService: ApiService) {
   }
 
   public getAllUsersForHousehold(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.baseurl + "/user/household", this.authService.httpOptions());
+    return this.apiService.get<User[]>('user/household');
   }
 
   public getUser(): Observable<User> {
-    return this.httpClient.get<User>(this.baseurl + "/user/details", this.authService.httpOptions());
+    return this.apiService.get<User>('user/details');
   }
 
 }

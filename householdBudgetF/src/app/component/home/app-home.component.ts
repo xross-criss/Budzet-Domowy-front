@@ -21,25 +21,12 @@ export class AppHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.balanceService.getBalances()
-      .toPromise()
-      .then(balance => {
-        this.summary = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
-        console.log(this.summary, balance);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .then(() => this.userService.getAllUsersForHousehold().toPromise())
-      .then(users => {
-        this.users = users;
-        console.log(this.users);
-        this.loggedInUser = this.users.find(user => user.login === this.username);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.balanceService.getBalances().subscribe(balance => {
+      this.summary = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
+    });
+    this.userService.getAllUsersForHousehold().subscribe(users => {
+      this.users = users;
+    });
   }
-
 
 }

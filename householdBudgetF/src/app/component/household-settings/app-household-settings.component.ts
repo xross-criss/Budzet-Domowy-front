@@ -3,6 +3,8 @@ import {User} from "../../model/User";
 import {UserService} from "../../services/user.service";
 import {Household} from "../../model/Household";
 import {HouseholdService} from "../../services/household.service";
+import {Balance} from '../../model/Balance';
+import {BalanceType} from '../../model/dictionary/BalanceType';
 
 @Component({
   selector: 'app-household-settings',
@@ -18,22 +20,12 @@ export class AppHouseholdSettingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.householdService.getHousehold().toPromise()
-      .then(household => {
-        this.household = household;
-        console.log(this.household);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .then(() => this.userService.getAllUsersForHousehold().toPromise())
-      .then(users => {
-        this.users = users;
-        console.log(this.users);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.householdService.getHousehold().subscribe(household => {
+      this.household = household;
+    });
+    this.userService.getAllUsersForHousehold().subscribe(users => {
+      this.users = users;
+    });
   }
 
 }

@@ -1,27 +1,20 @@
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Cashflow} from "../model/Cashflow";
-import {Injectable} from "@angular/core";
+import {Cashflow} from '../model/Cashflow';
+import {Injectable} from '@angular/core';
+import {ApiService} from './api.service';
 
 @Injectable({providedIn: 'root'})
 export class CashflowService {
 
-  baseurl = "http://localhost:8080/api";
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
-  constructor(private httpClient: HttpClient) {
+  constructor(private apiService: ApiService) {
   }
 
   public getCashflowList(): Observable<Cashflow> {
-    return this.httpClient.get<Cashflow>(this.baseurl + "/cashflow");
+    return this.apiService.get<Cashflow>('cashflow');
   }
 
-  public getCashflowListWithCategory(category: any) {
-    return this.httpClient.get<Cashflow>(this.baseurl + "/cashflow?cat=" + category);
+  public getCashflowListWithCategory(category: any):Observable<Cashflow[]> {
+    return this.apiService.get<Cashflow[]>('cashflow', {cat: 'category'});
   }
+
 }

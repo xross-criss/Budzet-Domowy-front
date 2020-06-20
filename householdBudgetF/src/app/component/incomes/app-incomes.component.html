@@ -4,14 +4,18 @@
 <h1 class="main-page-header">Przychody</h1>
 
 <mat-card class="main-page">
-  <mat-card-content *ngIf="incomes">
-    <mat-list>
-      <mat-list-item *ngFor="let income of incomes">
-        data rozpoczęcia: {{income.startDate}}
-        data zakończenia: {{income.endDate}}
-        kwota: {{income.amount}}
-        opis: {{income.description}}
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
+  <div>
+    <mat-card-content *ngIf="incomes">
+      <mat-list>
+        <mat-list-item *ngFor="let income of incomes">
+          <div class="main-page-col">
+            data rozpoczęcia: {{income.startDate}} <br>
+            data zakończenia: {{income.endDate}}<br>
+            kwota: {{income.amount}}<br>
+            opis: {{income.description}}<br>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </div>
 </mat-card>

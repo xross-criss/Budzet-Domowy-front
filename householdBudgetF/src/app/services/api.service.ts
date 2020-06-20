@@ -1,10 +1,29 @@
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {AuthService} from './auth.service';
 
+@Injectable({providedIn: 'root'})
 export class ApiService {
 
-  baseUrl = "http://localhost:8080";
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthService,
+  ) {
 
-  constructor(httpClient: HttpClient) {
   }
+
+  public get<T>(
+    urlSuffix: string,
+    params?: HttpParams | {
+      [param: string]: string | string[];
+    }
+  ): Observable<T> {
+    return this.httpClient.get<T>('http://localhost:8080/api/' + urlSuffix, {
+      headers: this.authService.httpHeaders(),
+      params
+    });
+  }
+
 
 }

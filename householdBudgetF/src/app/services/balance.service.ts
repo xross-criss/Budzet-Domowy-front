@@ -1,23 +1,20 @@
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Balance} from "../model/Balance";
+import {Balance} from '../model/Balance';
 import {Injectable} from '@angular/core';
-import {AuthService} from './auth.service';
+import {ApiService} from './api.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class BalanceService {
 
-  baseUrl = 'http://localhost:8080/api';
-
-  constructor(private httpClient: HttpClient, private authService: AuthService) {
+  constructor(private apiService: ApiService) {
   }
 
   public getBalances(): Observable<Balance[]> {
-    return this.httpClient.get<Balance[]>(this.baseUrl + '/balance', this.authService.httpOptions());
+    return this.apiService.get<Balance[]>('balance');
   }
 
   public generate(): Observable<Balance> {
-    return this.httpClient.get<Balance>(this.baseUrl + '/balance/generate', this.authService.httpOptions());
+    return this.apiService.get<Balance>('balance/generate');
   }
 
 }

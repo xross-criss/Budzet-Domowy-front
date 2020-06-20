@@ -22,12 +22,14 @@
       </h3>
     </div>
     <div class="main-page-col">
-      <h3>Członkowie twojego gospodarstwa:</h3>
-      <mat-list>
-        <mat-list-item *ngFor="let user of users">
-          {{user.name}}
-        </mat-list-item>
-      </mat-list>
+      <div class="mat-elevation-z1">
+        <h3>Członkowie twojego gospodarstwa:</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let user of users">
+            {{user.name}}
+          </mat-list-item>
+        </mat-list>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>

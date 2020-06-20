@@ -1,8 +1,8 @@
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Token} from '../model/Token';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
 
   baseUrl = 'http://localhost:8080/api';
@@ -15,13 +15,11 @@ export class AuthService {
       .toPromise();
   }
 
-  public httpOptions() {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'x-auth-token': localStorage.getItem('token')
-      })
-    };
+  public httpHeaders() {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-auth-token': localStorage.getItem('token')
+    });
   }
 
 }
