@@ -1,3 +1,0 @@
-enum GoalCategory {
-  SAVINGS, SHOPPING
-}

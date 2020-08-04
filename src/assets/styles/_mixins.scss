@@ -1,0 +1,15 @@
+/*MIXINS*/
+
+/* RWD - Media screen*/
+@mixin media($point) {
+    @media screen and (min-width: #{$point}) { @content; }
+}
+
+@mixin media-range($point-start, $point-end) {
+    @media screen and (min-width: #{$point-start}) and (max-width: #{$point-end}) { @content; }
+}
+
+//Sample use
+//@include media-range($screen-with-tablet,$screen-with-mobile) {
+//    content
+//}
