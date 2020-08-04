@@ -19,7 +19,7 @@ export class ApiService {
       [param: string]: string | string[];
     }
   ): Observable<T> {
-    return this.httpClient.get<T>('http://localhost:8080/api/' + urlSuffix, {
+    return this.httpClient.get<T>('/api/' + urlSuffix, {
       headers: this.authService.httpHeaders(),
       params
     });
@@ -32,7 +32,7 @@ export class ApiService {
       [param: string]: string | string[];
     },
   ): Observable<T> {
-    return this.httpClient.post<T>('http://localhost:8080/api/' + urlSuffix, body, {
+    return this.httpClient.post<T>('/api/' + urlSuffix, body, {
       headers: this.authService.httpHeaders(),
       params
     });
@@ -44,7 +44,7 @@ export class ApiService {
       [param: string]: string | string[];
     }
   ): Observable<T> {
-    return this.httpClient.delete<T>('http://localhost:8080/api/' + urlSuffix, {
+    return this.httpClient.delete<T>('/api/' + urlSuffix, {
       headers: this.authService.httpHeaders(),
       params
     });

@@ -21,53 +21,55 @@ import {MatListModule} from '@angular/material/list';
 import {BalanceService} from './services/balance.service';
 import {AppNavbarComponent} from './component/navbar/app-navbar.component';
 import {UserService} from './services/user.service';
-import {AppIncomesComponent} from "./component/incomes/app-incomes.component";
-import {AppExpensesComponent} from "./component/expenses/app-expenses.component";
-import {MatTableModule} from "@angular/material/table";
-import {AppSettingsComponent} from "./component/settings/app-settings.component";
-import {AppHouseholdSettingComponent} from "./component/household-settings/app-household-settings.component";
-import {CashflowService} from "./services/cashflow.service";
-import {HouseholdService} from "./services/household.service";
-import {TokenInterceptor} from "./guard/token-interceptor";
+import {AppIncomesComponent} from './component/incomes/app-incomes.component';
+import {AppExpensesComponent} from './component/expenses/app-expenses.component';
+import {MatTableModule} from '@angular/material/table';
+import {AppSettingsComponent} from './component/settings/app-settings.component';
+import {AppHouseholdSettingComponent} from './component/household-settings/app-household-settings.component';
+import {CashflowService} from './services/cashflow.service';
+import {HouseholdService} from './services/household.service';
+import {TokenInterceptor} from './guard/token-interceptor';
+import {HomeModule} from './ui/home/home.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppLoginComponent,
-    AppBalanceComponent,
-    AppHomeComponent,
-    AppNavbarComponent,
-    AppIncomesComponent,
-    AppExpensesComponent,
-    AppSettingsComponent,
-    AppHouseholdSettingComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-    MatMenuModule,
-    MatListModule,
-    MatTableModule,
-  ],
-  providers: [
-    AuthService,
-    BalanceService,
-    UserService,
-    CashflowService,
-    HouseholdService,
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AppLoginComponent,
+        AppBalanceComponent,
+        AppHomeComponent,
+        AppNavbarComponent,
+        AppIncomesComponent,
+        AppExpensesComponent,
+        AppSettingsComponent,
+        AppHouseholdSettingComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        MatProgressSpinnerModule,
+        MatMenuModule,
+        MatListModule,
+        MatTableModule,
+        HomeModule,
+    ],
+    providers: [
+        AuthService,
+        BalanceService,
+        UserService,
+        CashflowService,
+        HouseholdService,
+        {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
