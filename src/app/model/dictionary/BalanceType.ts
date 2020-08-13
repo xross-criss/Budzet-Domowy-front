@@ -1,0 +1,5 @@
+export enum BalanceType {
+  PREDICITON = 'PREDICITON',
+  SUMMARY = 'SUMMARY',
+  GENERATED = 'GENERATED'
+}
