@@ -2,15 +2,17 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SettingsUserComponent} from './settings-user/settings-user.component';
 import {SettingsHouseholdComponent} from './settings-household/settings-household.component';
+import {TokenGuard} from '../../guard/token-guard.service';
 
 
 const routes: Routes = [{
-    path:     'settings',
+    path: 'settings',
+    canActivate: [TokenGuard],
     children: [{
-        path:      'user',
+        path: 'user',
         component: SettingsUserComponent,
     }, {
-        path:      'household',
+        path: 'household',
         component: SettingsHouseholdComponent,
     }]
 }];
@@ -19,4 +21,5 @@ const routes: Routes = [{
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class SettingsRoutingModule {}
+export class SettingsRoutingModule {
+}
