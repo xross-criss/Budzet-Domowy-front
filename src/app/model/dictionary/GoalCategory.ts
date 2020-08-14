@@ -1,3 +1,3 @@
-enum GoalCategory {
+export enum GoalCategory {
   SAVINGS, SHOPPING
 }

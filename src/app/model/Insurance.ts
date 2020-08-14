@@ -1,4 +1,5 @@
 import {Household} from './Household';
+import {InsuranceType} from './dictionary/InsuranceType';
 
 export interface Insurance {
   id: number,

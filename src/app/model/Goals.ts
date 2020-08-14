@@ -1,4 +1,5 @@
 import {Household} from './Household';
+import {GoalCategory} from './dictionary/GoalCategory';
 
 export interface Goals {
   id: number,
