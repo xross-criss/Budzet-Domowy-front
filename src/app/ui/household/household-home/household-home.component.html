@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Przychody: <span class="badge badge-primary">{{balance.income}}</span>
+    </div>
+    <div class="col-lg-12 mt-1">
+        Rozchody: <span class="badge badge-primary">{{balance.burden}}</span>
+    </div>
+
+    <div class="col-lg-12 mt-1">
+    </div>
+
+    W tym:
+    <div class="col-lg-12 mt-1">
+        Bilans: <span class="badge badge-primary">{{balance.balance}}</span>
+    </div>
+    <div class="col-lg-12 mt-1">
+        Inwestycje: <span class="badge badge-primary">{{investmentReport.income}}</span>
+    </div>
+    <div class="col-lg-12 mt-1">
+        Pożyczki: <span class="badge badge-primary">{{loansReport.burden}}</span>
+    </div>
+    <div class="col-lg-12 mt-1">
+        Ubezpieczenia: <span class="badge badge-primary">{{loansReport.burden}}</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Inwestycje
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let investment of investmentsList">
+            nazwa: {{investment.name}}, kwota: {{investment.amount}}
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Ubezpieczenia
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let insurance of insuranceList">
+            nazwa: {{insurance.name}}, kwota: {{insurance.cost}}
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Pożyczki
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let loan of loansList">
+            bank: {{loan.bankName}}, kwota: {{loan.amount}}, rata: {{loan.installmentAmount}}
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Karty Kredytowe
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let debtCard of debtCardList">
+            bank: {{debtCard.bank}}, kwota dostępna: {{debtCard.balance}}, limit: {{debtCard.limit}}
+        </li>
+    </div>
+</div>
+
+<!--poprawić-->
+
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Przychody
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let cashflow of cashflowsList">
+            bank: {{cashflow.description}}, kwota: {{cashflow.amount}}
+        </li>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Wydatki
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let cashflow of cashflowsList">
+            bank: {{cashflow.description}}, kwota: {{cashflow.amount}}
+        </li>
+    </div>
+</div>

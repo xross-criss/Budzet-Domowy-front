@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-lg-12 mt-1">
+        Cele oszczędniościowe
+    </div>
+    <div class="col-lg-12 mt-1">
+        <li *ngFor="let goal of goalsList">
+            nazwa: {{goal.name}}, opis: {{goal.description}}, kwota: {{goal.amount}}, priorytet: {{goal.priority}}
+        </li>
+    </div>
+</div>
