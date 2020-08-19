@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header">
+        Cele Oszczędnościowe
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let goal of savingsList">
+            cel: {{goal.name}}, kwota: {{goal.amount}}
+<!--            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     aria-valuenow="{{goal.percent}}"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+            </div>-->
+        </li>
+    </ul>
+</div>
+<div class="card">
+    <div class="card-header">
+        Cele Zakupowe
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let goal of shoppingList">
+            cel: {{goal.name}}, kwota: {{goal.amount}}
+<!--            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     aria-valuenow="{{goal.percent}}"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+            </div>-->
+        </li>
+    </ul>
+</div>
+
+

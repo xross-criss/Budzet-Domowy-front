@@ -7,7 +7,6 @@ import {Report} from '../../../model/Report';
 import {InvestmentController} from '../../../controllers/investment.controller';
 import {Loan} from '../../../model/Loan';
 import {LoanController} from '../../../controllers/loan.controller';
-import {Insurance} from '../../../model/Insurance';
 import {InsuranceController} from '../../../controllers/insurance.controller';
 import {DebtCardsController} from '../../../controllers/debt-cards.controller';
 import {DebtCard} from '../../../model/DebtCard';
@@ -22,9 +21,6 @@ import {Cashflow} from '../../../model/Cashflow';
 export class HouseholdHomeComponent implements OnInit {
 
     public balance: Balance;
-    public investmentsList: Investment[];
-    public loansList: Loan[];
-    public insuranceList: Insurance[];
     public debtCardList: DebtCard[];
     public cashflowsList: Cashflow[];
     public investmentReport: Report;
@@ -49,20 +45,11 @@ export class HouseholdHomeComponent implements OnInit {
         this.investmentController.geCurrentMonthBalanceReport().subscribe(report => {
             this.investmentReport = report;
         });
-        this.investmentController.getInvestmentForCurrentMonth().subscribe(investments => {
-            this.investmentsList = investments;
-        });
         this.loanController.getCurrentMonthBalanceReport().subscribe(report => {
             this.loansReport = report;
         });
-        this.loanController.getLoans().subscribe(loans => {
-            this.loansList = loans;
-        });
         this.insuranceController.getCurrentMonthBalanceReport().subscribe(report => {
             this.insuranceReport = report;
-        });
-        this.insuranceController.getInsuranceForCurrentMonth().subscribe(insurances => {
-            this.insuranceList = insurances;
         });
         this.debtCardController.getDebtsCards().subscribe(debtCards => {
             this.debtCardList = debtCards;

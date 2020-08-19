@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+        Przychody
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let cashflow of incomeCashflowList">
+            nazwa: {{cashflow.description}}, kwota: {{cashflow.amount}}
+        </li>
+    </ul>
+</div>
+<div class="card">
+    <div class="card-header">
+        Wydatki
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let cashflow of expenseCashflowList">
+            nazwa: {{cashflow.description}}, kwota: {{cashflow.amount}}
+        </li>
+    </ul>
+</div>

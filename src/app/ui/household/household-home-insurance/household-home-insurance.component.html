@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-header">
+        Ubezpieczenia
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let item of insuranceList">
+            {{item.name}}
+        </li>
+    </ul>
+</div>

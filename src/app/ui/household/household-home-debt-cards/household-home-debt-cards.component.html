@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-header">
+        Karty Kredytowe
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let debtCard of debtCardsList">
+            bank: {{debtCard.bank}}, kwota dostępna: {{debtCard.balance}}, limit: {{debtCard.limit}}
+        </li>
+    </ul>
+</div>
