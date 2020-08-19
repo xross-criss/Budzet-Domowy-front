@@ -6,6 +6,7 @@ export interface Goals {
   household: Household,
   category: GoalCategory,
   amount: number,
+  percent: number,
   name: string,
   description: string,
   priority: number,
