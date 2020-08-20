@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Balance} from '../../../model/Balance';
 import {User} from '../../../model/User';
-import {BalanceController} from '../../../controllers/balance.controller';
-import {UserController} from '../../../controllers/user.controller';
+import {BalanceService} from '../../../services/balance.service';
+import {UserService} from '../../../services/user.service';
 import {BalanceType} from '../../../model/dictionary/BalanceType';
 
 @Component({
@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit {
     public username: string = localStorage.getItem('token').split(':')[0];
     public loggedInUser: User;
 
-    constructor(private balanceController: BalanceController, private userController: UserController) {
+    constructor(private balanceService: BalanceService, private userService: UserService) {
     }
 
     ngOnInit(): void {
-        this.balanceController.getBalances().subscribe(balance => {
+        this.balanceService.getBalances().subscribe(balance => {
             this.summary = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
         });
-        this.userController.getAllUsersForHousehold().subscribe(users => {
+        this.userService.getAllUsersForHousehold().subscribe(users => {
             this.users = users;
         });
     }
