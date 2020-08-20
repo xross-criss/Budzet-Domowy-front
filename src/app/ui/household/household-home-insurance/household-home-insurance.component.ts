@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {InsuranceController} from '../../../controllers/insurance.controller';
+import {InsuranceService} from '../../../services/insurance.service';
 import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
@@ -15,7 +15,7 @@ export class HouseholdHomeInsuranceComponent extends HouseholdLoadableComponent 
     public insuranceList: Insurance[];
 
     constructor(
-        public insuranceController: InsuranceController,
+        public insuranceService: InsuranceService,
     ) {
         super();
     }
@@ -25,7 +25,7 @@ export class HouseholdHomeInsuranceComponent extends HouseholdLoadableComponent 
     }
 
     public loadPage(): Observable<any> {
-        return this.insuranceController.getInsuranceForCurrentMonth().pipe(tap(insuranceList => this.insuranceList = insuranceList));
+        return this.insuranceService.getInsuranceForCurrentMonth().pipe(tap(insuranceList => this.insuranceList = insuranceList));
     }
 
 }

@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {DebtCard} from '../../../model/DebtCard';
-import {DebtCardsController} from '../../../controllers/debt-cards.controller';
+import {DebtCardsService} from '../../../services/debt-cards.service';
 
 @Component({
     selector: 'app-household-home-debt-cards',
@@ -15,7 +15,7 @@ export class HouseholdHomeDebtCardsComponent extends HouseholdLoadableComponent 
     public debtCardsList: DebtCard[];
 
     constructor(
-        public debtCardsController: DebtCardsController,
+        public debtCardsService: DebtCardsService,
     ) {
         super();
     }
@@ -24,7 +24,7 @@ export class HouseholdHomeDebtCardsComponent extends HouseholdLoadableComponent 
     }
 
     public loadPage(): Observable<any> {
-        return this.debtCardsController.getDebtsCards().pipe(tap(debtCardsList => this.debtCardsList = debtCardsList));
+        return this.debtCardsService.getDebtsCards().pipe(tap(debtCardsList => this.debtCardsList = debtCardsList));
     }
 
 }

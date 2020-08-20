@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-header">
+        Pożyczki
+    </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let loan of loansList">
+            bank: {{loan.bankName}}, kwota: {{loan.amount}}, rata: {{loan.installmentAmount}}
+        </li>
+    </ul>
+</div>

@@ -3,7 +3,7 @@ import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {Goals} from '../../../model/Goals';
-import {GoalsController} from '../../../controllers/goals.controller';
+import {GoalsService} from '../../../services/goals.service';
 import {GoalCategory} from '../../../model/dictionary/GoalCategory';
 
 @Component({
@@ -13,30 +13,31 @@ import {GoalCategory} from '../../../model/dictionary/GoalCategory';
 })
 export class HouseholdHomeGoalsComponent extends HouseholdLoadableComponent implements OnInit {
 
-    public goalsList: Goals[];
     public savingsList: Goals[];
     public shoppingList: Goals[];
 
     constructor(
-        public goalsController: GoalsController,
+        public goalsService: GoalsService,
     ) {
         super();
+        this.savingsList = [];
+        this.shoppingList = [];
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
+        super.ngOnInit();
     }
 
     public loadPage(): Observable<any> {
-        return this.goalsController.getGoals().pipe(tap(goalsList => {
-            this.goalsList = goalsList;
-
-            this.goalsList.forEach(goal => {
-                if (goal.category == GoalCategory.SAVINGS) {
+        return this.goalsService.getGoals().pipe(tap(goalsList => {
+            goalsList.forEach(goal => {
+                if (goal.category == GoalCategory[GoalCategory.SAVINGS]) {
                     this.savingsList.push(goal);
                 } else {
                     this.shoppingList.push(goal);
                 }
             });
+            console.log(this.savingsList, this.shoppingList);
         }));
     }
 

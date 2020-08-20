@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {Loan} from '../../../model/Loan';
-import {LoanController} from '../../../controllers/loan.controller';
+import {LoanService} from '../../../services/loan.service';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ export class HouseholdHomeLoansComponent extends HouseholdLoadableComponent impl
     public loansList: Loan[];
 
     constructor(
-        public loanController: LoanController,
+        public loanService: LoanService,
     ) {
         super();
     }
@@ -24,7 +24,7 @@ export class HouseholdHomeLoansComponent extends HouseholdLoadableComponent impl
     }
 
     public loadPage(): Observable<any> {
-        return this.loanController.getLoans().pipe(tap(loansList => this.loansList = loansList));
+        return this.loanService.getLoans().pipe(tap(loansList => this.loansList = loansList));
     }
 
 }

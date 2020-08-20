@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Investment} from '../../../model/Investment';
-import {InvestmentController} from '../../../controllers/investment.controller';
+import {InvestmentService} from '../../../services/investment.service';
 import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
@@ -15,7 +15,7 @@ export class HouseholdHomeInvestmentsComponent extends HouseholdLoadableComponen
     public investmentsList: Investment[];
 
     constructor(
-        public investmentController: InvestmentController,
+        public investmentService: InvestmentService,
     ) {
         super();
     }
@@ -25,7 +25,7 @@ export class HouseholdHomeInvestmentsComponent extends HouseholdLoadableComponen
     }
 
     public loadPage(): Observable<any> {
-        return this.investmentController.getInvestmentForCurrentMonth().pipe(tap(investmentsList => this.investmentsList = investmentsList));
+        return this.investmentService.getInvestmentForCurrentMonth().pipe(tap(investmentsList => this.investmentsList = investmentsList));
     }
 
 }
