@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Dodaj nowy przychód</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="startDateIncome">Data rozpoczęcia</label>
+            <div class="input-group">
+                <input id="startDateIncome" class="form-control" placeholder="dd-mm-yyyy" name="dp"
+                       ngbDatepicker #dp="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"
+                            type="button"></button>
+                </div>
+            </div>
+            <label for="endDateIncome">Data zakończenia</label>
+            <div class="input-group">
+                <input id="endDateIncome" class="form-control" placeholder="dd-mm-yyyy" name="dp" ngbDatepicker
+                       #dp="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"
+                            type="button"></button>
+                </div>
+            </div>
+            <label for="incomeInterval">okres naliczania (1 - co miesiac)</label>
+            <input formControlName="incomeInterval" type="text" id="incomeInterval" class="form-control"
+                   placeholder="1" required=""
+                   autofocus="">
+            <label for="incomeAmount">kwota</label>
+            <input formControlName="incomeAmount" type="text" id="incomeAmount" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="incomeDescription">okres naliczania (1 - co miesiac)</label>
+            <input formControlName="incomeDescription" type="text" id="incomeDescription" class="form-control"
+                   required=""
+                   autofocus="">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+</div>

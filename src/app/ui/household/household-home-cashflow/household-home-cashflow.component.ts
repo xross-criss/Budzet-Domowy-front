@@ -3,7 +3,7 @@ import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {Cashflow} from '../../../model/Cashflow';
-import {CashflowController} from '../../../controllers/cashflow.controller';
+import {CashflowService} from '../../../services/cashflow.service';
 import {CashflowCategory} from '../../../model/dictionary/CashflowCategory';
 
 @Component({
@@ -18,7 +18,7 @@ export class HouseholdHomeCashflowComponent extends HouseholdLoadableComponent i
     public expenseCashflowList: Cashflow[];
 
     constructor(
-        public cashflowController: CashflowController,
+        public cashflowService: CashflowService,
     ) {
         super();
     }
@@ -27,11 +27,11 @@ export class HouseholdHomeCashflowComponent extends HouseholdLoadableComponent i
     }
 
     public loadPage(): Observable<any> {
-        return this.cashflowController.getCashflowForCurrentMonth().pipe(tap(cashflowList => {
+        return this.cashflowService.getCashflowForCurrentMonth().pipe(tap(cashflowList => {
             this.cashflowList = cashflowList;
 
             this.cashflowList.forEach(cashflow => {
-                if (cashflow.category == CashflowCategory.INCOME) {
+                if (cashflow.category === CashflowCategory[CashflowCategory.INCOME]) {
                     this.incomeCashflowList.push(cashflow);
                 } else {
                     this.expenseCashflowList.push(cashflow);

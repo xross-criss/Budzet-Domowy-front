@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-header">
+        Przychody
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="incomeCashflowList">
+        <li *ngFor="let cashflow of incomeCashflowList">
+            nazwa: {{cashflow.description}}, kwota: {{cashflow.amount}}
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(cashflow)">Edytuj</button>
+        </li>
+    </ul>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(null)">Dodaj</button>
+
+
+</div>
