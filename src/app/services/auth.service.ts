@@ -4,7 +4,7 @@ import {Token} from '../model/Token';
 import {Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class AuthController {
+export class AuthService {
 
   constructor(private httpClient: HttpClient) {
   }

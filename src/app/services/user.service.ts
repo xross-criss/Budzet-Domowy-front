@@ -1,20 +1,20 @@
 import {Observable} from 'rxjs';
 import {User} from '../model/User';
 import {Injectable} from '@angular/core';
-import {ApiController} from './api.controller';
+import {ApiService} from './api.service';
 
 @Injectable({providedIn: 'root'})
-export class UserController {
+export class UserService {
 
-  constructor(private apiController: ApiController) {
+  constructor(private apiService: ApiService) {
   }
 
   public getAllUsersForHousehold(): Observable<User[]> {
-    return this.apiController.get<User[]>('user/household');
+    return this.apiService.get<User[]>('user/household');
   }
 
   public getUser(): Observable<User> {
-    return this.apiController.get<User>('user/details');
+    return this.apiService.get<User>('user/details');
   }
 
 }

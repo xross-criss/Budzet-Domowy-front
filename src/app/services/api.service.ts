@@ -1,14 +1,14 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {AuthController} from './auth.controller';
+import {AuthService} from './auth.service';
 
 @Injectable({providedIn: 'root'})
-export class ApiController {
+export class ApiService {
 
     constructor(
         private httpClient: HttpClient,
-        private authController: AuthController,
+        private authService: AuthService,
     ) {
 
     }
@@ -20,7 +20,7 @@ export class ApiController {
         }
     ): Observable<T> {
         return this.httpClient.get<T>('/api/' + urlSuffix, {
-            headers: this.authController.httpHeaders(),
+            headers: this.authService.httpHeaders(),
             params
         });
     }
@@ -33,7 +33,7 @@ export class ApiController {
         },
     ): Observable<T> {
         return this.httpClient.post<T>('/api/' + urlSuffix, body, {
-            headers: this.authController.httpHeaders(),
+            headers: this.authService.httpHeaders(),
             params
         });
     }
@@ -45,7 +45,7 @@ export class ApiController {
         }
     ): Observable<T> {
         return this.httpClient.delete<T>('/api/' + urlSuffix, {
-            headers: this.authController.httpHeaders(),
+            headers: this.authService.httpHeaders(),
             params
         });
     }

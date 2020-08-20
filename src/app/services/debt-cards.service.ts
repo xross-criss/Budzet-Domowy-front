@@ -1,23 +1,24 @@
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {ApiController} from './api.controller';
+import {ApiService} from './api.service';
 import {Report} from '../model/Report';
 import {Investment} from '../model/Investment';
 import {Loan} from '../model/Loan';
 import {Insurance} from '../model/Insurance';
+import {DebtCard} from '../model/DebtCard';
 
 @Injectable({providedIn: 'root'})
-export class InsuranceController {
+export class DebtCardsService {
 
-    constructor(private apiController: ApiController) {
+    constructor(private apiService: ApiService) {
     }
 
-    public getInsuranceForCurrentMonth(): Observable<Insurance[]> {
-        return this.apiController.get<Insurance[]>('insurance/currmonth');
+    public getDebtsCards(): Observable<DebtCard[]> {
+        return this.apiService.get<DebtCard[]>('debtcard');
     }
 
     public getCurrentMonthBalanceReport(): Observable<Report> {
-        return this.apiController.get<Report>('insurance/report');
+        return this.apiService.get<Report>('debtcard/report');
     }
 
 }

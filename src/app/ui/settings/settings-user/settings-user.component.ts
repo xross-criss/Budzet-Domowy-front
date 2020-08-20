@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SettingsHouseholdComponent} from '../settings-household/settings-household.component';
 import {User} from '../../../model/User';
-import {UserController} from '../../../controllers/user.controller';
+import {UserService} from '../../../services/user.service';
 import {forkJoin} from 'rxjs';
 
 @Component({
@@ -16,7 +16,7 @@ export class SettingsUserComponent implements OnInit {
 
     constructor(
         private ngbModal: NgbModal,
-        private userService: UserController,
+        private userService: UserService,
     ) {
     }
 

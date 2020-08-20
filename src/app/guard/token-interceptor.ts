@@ -1,12 +1,12 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from "@angular/common/http";
-import {AuthController} from "../controllers/auth.controller";
+import {AuthService} from "../services/auth.service";
 import {Observable, of} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 import {Injectable} from "@angular/core";
 
 @Injectable({providedIn: 'root'})
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(public authService: AuthController) {
+  constructor(public authService: AuthService) {
   }
 
   private readonly _key = 'x-auth-token';

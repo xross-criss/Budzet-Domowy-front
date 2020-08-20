@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../model/User';
-import {UserController} from '../../../controllers/user.controller';
-import {HouseholdController} from '../../../controllers/household.controller';
+import {UserService} from '../../../services/user.service';
+import {HouseholdService} from '../../../services/household.service';
 import {Household} from '../../../model/Household';
 
 @Component({
@@ -15,16 +15,16 @@ export class SettingsHouseholdComponent implements OnInit {
     public userList: User[];
 
     constructor(
-        private userController: UserController,
-        private householdController: HouseholdController,
+        private userService: UserService,
+        private householdService: HouseholdService,
     ) {
     }
 
     ngOnInit(): void {
-        this.householdController.getHousehold().subscribe(household => {
+        this.householdService.getHousehold().subscribe(household => {
             this.household = household;
         });
-        this.userController.getAllUsersForHousehold().subscribe(users => {
+        this.userService.getAllUsersForHousehold().subscribe(users => {
             this.userList = users;
         });
     }

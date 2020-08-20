@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {AuthController} from '../../../controllers/auth.controller';
+import {AuthService} from '../../../services/auth.service';
 import {delay} from 'rxjs/operators';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     public loading = false;
     public error = false;
 
-    constructor(private authController: AuthController, private router: Router) {
+    constructor(private authService: AuthService, private router: Router) {
     }
 
     public ngOnInit(): void {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         }
         this.loading = true;
         this.error = false;
-        this.authController.authorize(this.loginForm.value.username, this.loginForm.value.password).pipe(
+        this.authService.authorize(this.loginForm.value.username, this.loginForm.value.password).pipe(
             delay(3000),
         ).subscribe(token => {
             this.loading = false;
