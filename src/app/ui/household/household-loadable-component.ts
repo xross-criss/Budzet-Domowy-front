@@ -7,7 +7,6 @@ export abstract class HouseholdLoadableComponent implements OnInit {
 
     public ngOnInit(): void {
         this.loading = true;
-        console.log('ngOnInit');
         this.loadPage().subscribe(() => this.loading = false);
     }
 

@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {Balance} from '../../../model/Balance';
 import {BalanceType} from '../../../model/dictionary/BalanceType';
-import {BalanceController} from '../../../controllers/balance.controller';
+import {BalanceService} from '../../../services/balance.service';
 import {Investment} from '../../../model/Investment';
 import {Report} from '../../../model/Report';
-import {InvestmentController} from '../../../controllers/investment.controller';
+import {InvestmentService} from '../../../services/investment.service';
 import {Loan} from '../../../model/Loan';
-import {LoanController} from '../../../controllers/loan.controller';
-import {InsuranceController} from '../../../controllers/insurance.controller';
-import {DebtCardsController} from '../../../controllers/debt-cards.controller';
+import {LoanService} from '../../../services/loan.service';
+import {InsuranceService} from '../../../services/insurance.service';
+import {DebtCardsService} from '../../../services/debt-cards.service';
 import {DebtCard} from '../../../model/DebtCard';
-import {CashflowController} from '../../../controllers/cashflow.controller';
+import {CashflowService} from '../../../services/cashflow.service';
 import {Cashflow} from '../../../model/Cashflow';
 
 @Component({
@@ -29,35 +29,35 @@ export class HouseholdHomeComponent implements OnInit {
     public cashflowReport: Report;
 
     constructor(
-        public balanceController: BalanceController,
-        public investmentController: InvestmentController,
-        public loanController: LoanController,
-        public insuranceController: InsuranceController,
-        public debtCardController: DebtCardsController,
-        public cashflowController: CashflowController
+        public balanceService: BalanceService,
+        public investmentService: InvestmentService,
+        public loanService: LoanService,
+        public insuranceService: InsuranceService,
+        public debtCardService: DebtCardsService,
+        public cashflowService: CashflowService
     ) {
     }
 
     ngOnInit(): void {
-        this.balanceController.getBalances().subscribe(balance => {
+        this.balanceService.getBalances().subscribe(balance => {
             this.balance = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
         });
-        this.investmentController.geCurrentMonthBalanceReport().subscribe(report => {
+        this.investmentService.geCurrentMonthBalanceReport().subscribe(report => {
             this.investmentReport = report;
         });
-        this.loanController.getCurrentMonthBalanceReport().subscribe(report => {
+        this.loanService.getCurrentMonthBalanceReport().subscribe(report => {
             this.loansReport = report;
         });
-        this.insuranceController.getCurrentMonthBalanceReport().subscribe(report => {
+        this.insuranceService.getCurrentMonthBalanceReport().subscribe(report => {
             this.insuranceReport = report;
         });
-        this.debtCardController.getDebtsCards().subscribe(debtCards => {
+        this.debtCardService.getDebtsCards().subscribe(debtCards => {
             this.debtCardList = debtCards;
         });
-        this.cashflowController.getCurrentMonthBalanceReport().subscribe(report => {
+        this.cashflowService.getCurrentMonthBalanceReport().subscribe(report => {
             this.cashflowReport = report;
         });
-        this.cashflowController.getCashflowForCurrentMonth().subscribe(cashflow => {
+        this.cashflowService.getCashflowForCurrentMonth().subscribe(cashflow => {
             this.cashflowsList = cashflow;
         });
     }

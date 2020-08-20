@@ -11,6 +11,15 @@ import { HouseholdHomeLoansComponent } from './household-home-loans/household-ho
 import { HouseholdHomeDebtCardsComponent } from './household-home-debt-cards/household-home-debt-cards.component';
 import { HouseholdHomeCashflowComponent } from './household-home-cashflow/household-home-cashflow.component';
 import { HouseholdHomeGoalsComponent } from './household-home-goals/household-home-goals.component';
+import { ExpensesComponent } from './expenses/expenses.component';
+import { IncomesComponent } from './incomes/incomes.component';
+import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {ReactiveFormsModule} from '@angular/forms';
+import { InvestmentsComponent } from './investments/investments.component';
+import { InsurancesComponent } from './insurances/insurances.component';
+import { LoansComponent } from './loans/loans.component';
+import { BalancesComponent } from './balances/balances.component';
+import { EditCashflowModalComponent } from './misc/edit-cashflow-modal/edit-cashflow-modal.component';
 
 @NgModule({
     declarations: [
@@ -21,12 +30,24 @@ import { HouseholdHomeGoalsComponent } from './household-home-goals/household-ho
         HouseholdHomeLoansComponent,
         HouseholdHomeDebtCardsComponent,
         HouseholdHomeCashflowComponent,
-        HouseholdHomeGoalsComponent
+        HouseholdHomeGoalsComponent,
+        ExpensesComponent,
+        IncomesComponent,
+        InvestmentsComponent,
+        InsurancesComponent,
+        LoansComponent,
+        BalancesComponent,
+        EditCashflowModalComponent
     ],
     imports: [
         CommonModule,
         CommonsModule,
-        HouseholdRoutingModule
+        HouseholdRoutingModule,
+        NgbDatepickerModule,
+        ReactiveFormsModule
+    ],
+    exports:[
+        EditCashflowModalComponent
     ]
 })
 export class HouseholdModule {
