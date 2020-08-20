@@ -1,12 +1,33 @@
 import {Household} from './Household';
 
-export interface Loan {
-  id: number,
-  household: Household,
-  bankName: string,
-  annualLoanPercentage: number,
-  startDate: Date,
-  endDate: Date,
-  amount: number,
-  installmentAmount: number,
+export class Loan {
+
+    constructor(
+        public id: number,
+        public household: Household,
+        public bankName: string,
+        public annualLoanPercentage: number,
+        public startDate: Date,
+        public endDate: Date,
+        public amount: number,
+        public installmentAmount: number,
+    ) {
+    }
+
+    public static fromList(entries: any[]): Loan[] {
+        return entries.map(loan => Loan.fromObject(loan));
+    }
+
+    public static fromObject(obj: any): Loan {
+        return new Loan(
+            obj.id,
+            obj.household,
+            obj.bankName,
+            obj.annualLoanPercentage,
+            obj.startDate,
+            obj.endDate,
+            obj.amount,
+            obj.installmentAmount,
+        );
+    }
 }

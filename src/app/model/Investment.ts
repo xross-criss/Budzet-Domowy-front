@@ -1,14 +1,35 @@
 import {Household} from './Household';
 import {InvestmentCategory} from './dictionary/InvestmentCategory';
 
-export interface Investment {
-  id: number,
-  household: Household,
-  type: InvestmentCategory,
-  isMonthly: boolean,
-  period: number,
-  endDate: Date,
-  investmentPercentage: number,
-  amount: number,
-  name: string,
+export class Investment {
+    constructor(
+        public id: number,
+        public household: Household,
+        public type: InvestmentCategory,
+        public isMonthly: boolean,
+        public period: number,
+        public endDate: Date,
+        public investmentPercentage: number,
+        public amount: number,
+        public name: string,
+    ) {
+    }
+
+    public static fromList(entries: any[]): Investment[] {
+        return entries.map(investment => Investment.fromObject(investment));
+    }
+
+    public static fromObject(obj: any): Investment {
+        return new Investment(
+            obj.id,
+            obj.household,
+            obj.type,
+            obj.isMonthly,
+            obj.period,
+            obj.endDate,
+            obj.investmentPercentage,
+            obj.amount,
+            obj.name,
+        );
+    }
 }
