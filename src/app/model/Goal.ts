@@ -1,7 +1,8 @@
 import {Household} from './Household';
 import {GoalCategory} from './dictionary/GoalCategory';
 
-export class Goals {
+export class Goal {
+
     constructor(
         public id: number,
         public household: Household,
@@ -14,12 +15,12 @@ export class Goals {
     ) {
     }
 
-    public static fromList(entries: any[]): Goals[] {
-        return entries.map(goals => Goals.fromObject(goals));
+    public static fromList(entries: any[]): Goal[] {
+        return entries.map(goals => Goal.fromObject(goals));
     }
 
-    public static fromObject(obj: any): Goals {
-        return new Goals(
+    public static fromObject(obj: any): Goal {
+        return new Goal(
             obj.id,
             obj.household,
             obj.category,

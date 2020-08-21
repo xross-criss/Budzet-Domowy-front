@@ -1,5 +1,1 @@
-export enum BalanceType {
-  PREDICITON = 'PREDICITON',
-  SUMMARY = 'SUMMARY',
-  GENERATED = 'GENERATED'
-}
+export type BalanceType = 'PREDICITON' | 'SUMMARY' | 'GENERATED';

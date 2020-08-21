@@ -1,3 +1,1 @@
-export enum InsuranceType {
-  LIFE, HOUSE, CAR, OTHER
-}
+export type InsuranceType = 'LIFE' | 'HOUSE' | 'CAR' | 'OTHER'

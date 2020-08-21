@@ -1,3 +1,1 @@
-export enum InvestmentCategory {
-  STOCK, STOCK_DYNAMIC, INVESTMENT
-}
+export type InvestmentCategory = 'STOCK' | 'STOCK_DYNAMIC' | 'INVESTMENT'

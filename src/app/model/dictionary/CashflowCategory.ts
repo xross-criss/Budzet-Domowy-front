@@ -1,3 +1,1 @@
-export enum CashflowCategory {
-  INCOME, EXPENSE
-}
+export type CashflowCategory = 'INCOME' | 'EXPENSE'

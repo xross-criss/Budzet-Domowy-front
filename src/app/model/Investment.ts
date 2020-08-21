@@ -2,12 +2,13 @@ import {Household} from './Household';
 import {InvestmentCategory} from './dictionary/InvestmentCategory';
 
 export class Investment {
+
     constructor(
         public id: number,
         public household: Household,
         public type: InvestmentCategory,
-        public isMonthly: boolean,
-        public period: number,
+        public interval: boolean,
+        public startDate: number,
         public endDate: Date,
         public investmentPercentage: number,
         public amount: number,
@@ -24,8 +25,8 @@ export class Investment {
             obj.id,
             obj.household,
             obj.type,
-            obj.isMonthly,
-            obj.period,
+            obj.interval,
+            obj.startDate,
             obj.endDate,
             obj.investmentPercentage,
             obj.amount,

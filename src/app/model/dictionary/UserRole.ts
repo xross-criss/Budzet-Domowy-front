@@ -1,3 +1,1 @@
-export enum UserRole {
-  FAMILY_GUY, MEMBER
-}
+export type UserRole = 'FAMILY_GUY' | 'MEMBER';

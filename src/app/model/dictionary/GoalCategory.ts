@@ -1,3 +1,1 @@
-export enum GoalCategory {
-  SAVINGS, SHOPPING
-}
+export type GoalCategory = 'SAVINGS' | 'SHOPPING';
