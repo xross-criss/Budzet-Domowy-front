@@ -5,36 +5,26 @@
     </button>
 </div>
 <div class="modal-body">
-    <form>
+    <form [formGroup]="dataForm">
         <div class="form-group">
-            <label for="startDateIncome">Data rozpoczęcia</label>
-            <div class="input-group">
-                <input id="startDateIncome" class="form-control" placeholder="dd-mm-yyyy" name="dp"
-                       ngbDatepicker #dp="ngbDatepicker">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"
-                            type="button"></button>
-                </div>
-            </div>
-            <label for="endDateIncome">Data zakończenia</label>
-            <div class="input-group">
-                <input id="endDateIncome" class="form-control" placeholder="dd-mm-yyyy" name="dp" ngbDatepicker
-                       #dp="ngbDatepicker">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"
-                            type="button"></button>
-                </div>
-            </div>
-            <label for="incomeInterval">okres naliczania (1 - co miesiac)</label>
-            <input formControlName="incomeInterval" type="text" id="incomeInterval" class="form-control"
+            <label for="startDate">Data rozpoczęcia</label>
+            <input formControlName="startDate" type="text" id="startDate" class="form-control"
+                   placeholder="1" required=""
+                   autofocus="">
+            <label for="endDate">Data zakończenia</label>
+            <input formControlName="endDate" type="text" id="endDate" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="incomePeriod">okres naliczania (1 - co miesiac)</label>
+            <input formControlName="period" type="text" id="incomePeriod" class="form-control"
                    placeholder="1" required=""
                    autofocus="">
             <label for="incomeAmount">kwota</label>
-            <input formControlName="incomeAmount" type="text" id="incomeAmount" class="form-control"
+            <input formControlName="amount" type="text" id="incomeAmount" class="form-control"
                    required=""
                    autofocus="">
-            <label for="incomeDescription">okres naliczania (1 - co miesiac)</label>
-            <input formControlName="incomeDescription" type="text" id="incomeDescription" class="form-control"
+            <label for="incomeDescription">opis</label>
+            <input formControlName="description" type="text" id="incomeDescription" class="form-control"
                    required=""
                    autofocus="">
         </div>

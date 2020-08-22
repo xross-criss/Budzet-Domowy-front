@@ -23,10 +23,10 @@ export class EditCashflowModalComponent implements OnInit {
         this.cashFlow = this.injector.get(Cashflow) || Cashflow.fromObject({});
         this.dataForm = new FormGroup({
             startDate: new FormControl(this.cashFlow.startDate),
-            endDate: new FormControl(''),
-            amount: new FormControl(''),
-            interval: new FormControl(''),
-            description: new FormControl('')
+            endDate: new FormControl(this.cashFlow.endDate),
+            amount: new FormControl(this.cashFlow.amount),
+            period: new FormControl(this.cashFlow.period),
+            description: new FormControl(this.cashFlow.description)
         });
     }
 
@@ -35,6 +35,12 @@ export class EditCashflowModalComponent implements OnInit {
     }
 
     public close(): void {
+        this.cashFlow.startDate = this.dataForm.get('startDate').value;
+        this.cashFlow.endDate = this.dataForm.get('endDate').value as Date;
+        this.cashFlow.amount = this.dataForm.get('amount').value;
+        this.cashFlow.period = this.dataForm.get('period').value;
+        this.cashFlow.description = this.dataForm.get('description').value;
+
         this.activeModal.close(this.cashFlow);
     }
 
