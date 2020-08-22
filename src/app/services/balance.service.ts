@@ -6,15 +6,18 @@ import {ApiService} from './api.service';
 @Injectable({providedIn: 'root'})
 export class BalanceService {
 
-  constructor(private apiService: ApiService) {
-  }
+    constructor(private apiService: ApiService) {
+    }
 
-  public getBalances(): Observable<Balance[]> {
-    return this.apiService.get<Balance[]>('balance');
-  }
+    public getBalances(): Observable<Balance[]> {
+        return this.apiService.get<Balance[]>('balance');
+    }
 
-  public generate(): Observable<Balance> {
-    return this.apiService.get<Balance>('balance/generate');
-  }
+    public generate(): Observable<Balance> {
+        return this.apiService.get<Balance>('balance/generate');
+    }
 
+    getBalancesForMonth(number: string): Observable<Balance[]> {
+        return this.apiService.get<Balance[]>('balance/month', {'no': number});
+    }
 }

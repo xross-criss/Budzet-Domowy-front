@@ -10,7 +10,7 @@ export class Cashflow {
         public endDate: Date,
         public household: Household,
         public id: number,
-        public interval: number,
+        public period: number,
         public startDate: Date,
     ) {
     }
@@ -27,7 +27,7 @@ export class Cashflow {
             obj.endDate,
             obj.household,
             obj.id,
-            obj.interval,
+            obj.period,
             obj.startDate,
         );
     }

@@ -27,5 +27,8 @@ export class CashflowService {
         return this.apiService.get<Report>('cashflow/report');
     }
 
+    public updateCashflow(cashflow:Cashflow): Observable<Cashflow> {
+        return this.apiService.post('cashflow', cashflow);
+    }
 
 }
