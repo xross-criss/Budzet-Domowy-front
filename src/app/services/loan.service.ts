@@ -2,7 +2,6 @@ import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {ApiService} from './api.service';
 import {Report} from '../model/Report';
-import {Investment} from '../model/Investment';
 import {Loan} from '../model/Loan';
 
 @Injectable({providedIn: 'root'})
@@ -19,4 +18,7 @@ export class LoanService {
         return this.apiService.get<Report>('loan/report');
     }
 
+    public updateLoan(loan: Loan): Observable<Loan> {
+        return this.apiService.post<Loan>('loan', loan);
+    }
 }

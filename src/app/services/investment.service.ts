@@ -22,4 +22,8 @@ export class InvestmentService {
         return this.apiService.get<Report>('investment/report');
     }
 
+    public updateInvestment(investment: Investment): Observable<Investment> {
+        return this.apiService.post('investment', investment);
+    }
+
 }
