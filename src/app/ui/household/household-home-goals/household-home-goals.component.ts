@@ -42,7 +42,6 @@ export class HouseholdHomeGoalsComponent extends HouseholdLoadableComponent impl
                     this.shoppingList.push(goal);
                 }
             }
-            console.log(this.savingsList, this.shoppingList);
         }));
     }
 

@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Balance} from '../../../model/Balance';
-import {BalanceType} from '../../../model/dictionary/BalanceType';
 import {BalanceService} from '../../../services/balance.service';
-import {Investment} from '../../../model/Investment';
 import {Report} from '../../../model/Report';
 import {InvestmentService} from '../../../services/investment.service';
-import {Loan} from '../../../model/Loan';
 import {LoanService} from '../../../services/loan.service';
 import {InsuranceService} from '../../../services/insurance.service';
 import {DebtCardsService} from '../../../services/debt-cards.service';
@@ -40,7 +37,7 @@ export class HouseholdHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.balanceService.getBalances().subscribe(balance => {
-            this.balance = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
+            this.balance = balance.find((value: Balance) => value.type === 'SUMMARY');
         });
         this.investmentService.geCurrentMonthBalanceReport().subscribe(report => {
             this.investmentReport = report;

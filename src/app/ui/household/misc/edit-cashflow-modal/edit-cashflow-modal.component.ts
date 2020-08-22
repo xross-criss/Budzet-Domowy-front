@@ -36,7 +36,7 @@ export class EditCashflowModalComponent implements OnInit {
 
     public close(): void {
         this.cashFlow.startDate = this.dataForm.get('startDate').value;
-        this.cashFlow.endDate = this.dataForm.get('endDate').value as Date;
+        this.cashFlow.endDate = this.dataForm.get('endDate').value;
         this.cashFlow.amount = this.dataForm.get('amount').value;
         this.cashFlow.period = this.dataForm.get('period').value;
         this.cashFlow.description = this.dataForm.get('description').value;

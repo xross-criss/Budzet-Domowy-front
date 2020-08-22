@@ -31,7 +31,7 @@ export class HouseholdHomeCashflowComponent extends HouseholdLoadableComponent i
             this.cashflowList = cashflowList;
 
             this.cashflowList.forEach(cashflow => {
-                if (cashflow.category === CashflowCategory[CashflowCategory.INCOME]) {
+                if (cashflow.category === 'INCOME') {
                     this.incomeCashflowList.push(cashflow);
                 } else {
                     this.expenseCashflowList.push(cashflow);
