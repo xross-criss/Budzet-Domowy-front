@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Dodaj nowy przychód</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="dataForm">
+        <div class="form-group">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Kategoria inwestycji:</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="type">
+                <option selected>Wybierz...</option>
+                <option value="STOCK">Lokata</option>
+                <option value="STOCK_DYNAMIC">Lokata Dynamiczna</option>
+                <option value="INVESTMENT">Inwestycja</option>
+            </select>
+            <label for="investmentName">nazwa</label>
+            <input formControlName="name" type="text" id="investmentName" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="investmentAmount">kwota</label>
+            <input formControlName="amount" type="text" id="investmentAmount" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="investmentPeriod">Okres naliczania</label>
+            <input formControlName="period" type="text" id="investmentPeriod" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="investmentPercentage">procent</label>
+            <input formControlName="investmentPercentage" type="text" id="investmentPercentage" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="startDate">Data rozpoczęcia</label>
+            <input formControlName="startDate" type="text" id="startDate" class="form-control"
+                   placeholder="1" required=""
+                   autofocus="">
+            <label for="endDate">Data zakończenia</label>
+            <input formControlName="endDate" type="text" id="endDate" class="form-control"
+                   required=""
+                   autofocus="">
+<!--            <label for="investmentStartDate">Data rozpoczęcia</label>-->
+<!--            <div class="input-group">-->
+<!--                <input id="investmentStartDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
+<!--                       #dp="ngbDatepicker">-->
+<!--                <div class="input-group-append">-->
+<!--                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
+<!--                            type="button"></button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <label for="investmentEndDate">Data zakończenia</label>-->
+<!--            <div class="input-group">-->
+<!--                <input id="investmentEndDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
+<!--                       #dp="ngbDatepicker">-->
+<!--                <div class="input-group-append">-->
+<!--                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
+<!--                            type="button"></button>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+</div>

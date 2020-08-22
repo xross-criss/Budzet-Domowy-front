@@ -1,0 +1,49 @@
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <h4 class="alert-heading"><i class="fas fa-star pr-2"></i>{{investment.name}}<span
+        class="float-right cursor-pointer" [hidden]="!editable"><i
+        class="fas fa-edit pr-2" (click)="editAction()"></i>Edytuj</span></h4>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Kwota</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Data rozpoczęcia</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Data zakończenia</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{investment.amount}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{investment.startDate}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{investment.endDate}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Okres naliczania</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Procent przychodów</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Kategoria</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{investment.period}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{investment.investmentPercentage}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{translateCategory(investment.type)}}</span>
+        </div>
+    </div>
+</div>
