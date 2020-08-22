@@ -1,0 +1,19 @@
+<ul class="list-group list-group-flush pr-3" [ngClass]="className">
+    <div class="alert m-3" role="alert" *ngFor="let balance of balances">
+        <div class="col-sm-4 text-center">
+            <strong>Data wygenerowania: {{balance.generationDate}}</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Przychody: {{balance.income}}</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Wydatki: {{balance.burden}}</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Bilans: {{balance.balance}}</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Typ: {{translateType(balance.type)}}</strong>
+        </div>
+    </div>
+</ul>
