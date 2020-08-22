@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.balanceService.getBalances().subscribe(balance => {
-            this.summary = balance.find((value: Balance) => value.type === BalanceType.SUMMARY);
+            this.summary = balance.find((value: Balance) => value.type === 'SUMMARY');
         });
         this.userService.getAllUsersForHousehold().subscribe(users => {
             this.users = users;

@@ -14,12 +14,18 @@ import { HouseholdHomeGoalsComponent } from './household-home-goals/household-ho
 import { ExpensesComponent } from './expenses/expenses.component';
 import { IncomesComponent } from './incomes/incomes.component';
 import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { InvestmentsComponent } from './investments/investments.component';
 import { InsurancesComponent } from './insurances/insurances.component';
 import { LoansComponent } from './loans/loans.component';
 import { BalancesComponent } from './balances/balances.component';
 import { EditCashflowModalComponent } from './misc/edit-cashflow-modal/edit-cashflow-modal.component';
+import { EditGoalsModalComponent } from './misc/edit-goals-modal/edit-goals-modal.component';
+import { EditInsuranceModalComponent } from './misc/edit-insurance-modal/edit-insurance-modal.component';
+import { EditLoanModalComponent } from './misc/edit-loan-modal/edit-loan-modal.component';
+import { EditInvestmentModalComponent } from './misc/edit-investment-modal/edit-investment-modal.component';
+import { HouseholdHomeGoalComponent } from './household-home-goal/household-home-goal.component';
+import { IncomeComponent } from './income/income.component';
 
 @NgModule({
     declarations: [
@@ -37,14 +43,21 @@ import { EditCashflowModalComponent } from './misc/edit-cashflow-modal/edit-cash
         InsurancesComponent,
         LoansComponent,
         BalancesComponent,
-        EditCashflowModalComponent
+        EditCashflowModalComponent,
+        EditGoalsModalComponent,
+        EditInsuranceModalComponent,
+        EditLoanModalComponent,
+        EditInvestmentModalComponent,
+        HouseholdHomeGoalComponent,
+        IncomeComponent
     ],
     imports: [
         CommonModule,
         CommonsModule,
         HouseholdRoutingModule,
         NgbDatepickerModule,
-        ReactiveFormsModule
+        FormsModule,
+        ReactiveFormsModule,
     ],
     exports:[
         EditCashflowModalComponent
