@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.error = false;
         this.authService.authorize(this.loginForm.value.username, this.loginForm.value.password).pipe(
-            delay(3000),
+            delay(2000),
         ).subscribe(token => {
             this.loading = false;
             localStorage.setItem('token', token.token);

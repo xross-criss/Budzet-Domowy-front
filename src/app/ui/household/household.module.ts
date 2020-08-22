@@ -26,6 +26,10 @@ import { EditLoanModalComponent } from './misc/edit-loan-modal/edit-loan-modal.c
 import { EditInvestmentModalComponent } from './misc/edit-investment-modal/edit-investment-modal.component';
 import { HouseholdHomeGoalComponent } from './household-home-goal/household-home-goal.component';
 import { IncomeComponent } from './income/income.component';
+import { BalanceComponent } from './balance/balance.component';
+import { LoanComponent } from './loan/loan.component';
+import { InvestmentComponent } from './investment/investment.component';
+import { ExpenseComponent } from './expense/expense.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +53,11 @@ import { IncomeComponent } from './income/income.component';
         EditLoanModalComponent,
         EditInvestmentModalComponent,
         HouseholdHomeGoalComponent,
-        IncomeComponent
+        IncomeComponent,
+        BalanceComponent,
+        LoanComponent,
+        InvestmentComponent,
+        ExpenseComponent
     ],
     imports: [
         CommonModule,

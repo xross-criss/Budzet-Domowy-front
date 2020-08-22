@@ -38,7 +38,7 @@ const routes: Routes = [{
     }, {
         path: 'balances',
         component: BalancesComponent,
-    }
+    },
     ]
 }];
 
