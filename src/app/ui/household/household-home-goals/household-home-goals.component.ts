@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injector, OnInit} from '@angular/core';
 import {HouseholdLoadableComponent} from '../household-loadable-component';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {Goals} from '../../../model/Goals';
+import {Goal} from '../../../model/Goal';
 import {GoalsService} from '../../../services/goals.service';
-import {GoalCategory} from '../../../model/dictionary/GoalCategory';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CacheService} from '../../../services/cache.service';
+import {EditGoalsModalComponent} from '../misc/edit-goals-modal/edit-goals-modal.component';
 
 @Component({
     selector: 'app-household-home-goals',
@@ -13,15 +15,16 @@ import {GoalCategory} from '../../../model/dictionary/GoalCategory';
 })
 export class HouseholdHomeGoalsComponent extends HouseholdLoadableComponent implements OnInit {
 
-    public savingsList: Goals[];
-    public shoppingList: Goals[];
+    public savingsList: Goal[];
+    public shoppingList: Goal[];
 
     constructor(
         public goalsService: GoalsService,
+        private modalService: NgbModal,
+        private injector: Injector,
+        private cacheService: CacheService,
     ) {
         super();
-        this.savingsList = [];
-        this.shoppingList = [];
     }
 
     public ngOnInit(): void {
@@ -29,16 +32,34 @@ export class HouseholdHomeGoalsComponent extends HouseholdLoadableComponent impl
     }
 
     public loadPage(): Observable<any> {
-        return this.goalsService.getGoals().pipe(tap(goalsList => {
-            goalsList.forEach(goal => {
-                if (goal.category == GoalCategory[GoalCategory.SAVINGS]) {
+        return this.goalsService.getGoals().pipe(tap((goalsList: Goal[]) => {
+            this.savingsList = [];
+            this.shoppingList = [];
+            for (let goal of goalsList) {
+                if (goal.category === 'SAVINGS') {
                     this.savingsList.push(goal);
                 } else {
                     this.shoppingList.push(goal);
                 }
-            });
+            }
             console.log(this.savingsList, this.shoppingList);
         }));
+    }
+
+    public edit(flow: Goal): void {
+        this.modalService.open(EditGoalsModalComponent, {
+            injector: Injector.create({
+                providers: [{
+                    provide: Goal,
+                    useValue: flow
+                }],
+                parent: this.injector
+            })
+        }).result.then((result: Goal) => {
+            result.household = this.cacheService.get('household');
+            this.goalsService.updateGoal(result).subscribe(() => this.ngOnInit());
+        }, () => {
+        });
     }
 
 }

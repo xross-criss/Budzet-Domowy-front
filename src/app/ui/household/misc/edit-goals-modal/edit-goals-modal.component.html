@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Dodaj nowy przychód</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="dataForm">
+        <div class="form-group">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Kategoria celu:</label>
+            <select formControlName="category" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Wybierz...</option>
+                <option value="SAVINGS">Oszczędnościowy</option>
+                <option value="SHOPPING">Zakupowy</option>
+            </select>
+            <label for="goalAmount">kwota</label>
+            <input formControlName="amount" type="text" id="goalAmount" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="goalName">nazwa</label>
+            <input formControlName="name" type="text" id="goalName" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="goalDescription">opis</label>
+            <input formControlName="description" type="text" id="goalDescription" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="goalPriority">priorytet (1- najwyższy, 10-najniższy)</label>
+            <input formControlName="priority" type="text" id="goalPriority" class="form-control"
+                   required=""
+                   autofocus="">
+            <input type="hidden" id="id" class="form-control" formControlName="id">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+</div>
