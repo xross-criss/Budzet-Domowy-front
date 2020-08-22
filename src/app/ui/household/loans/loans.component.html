@@ -1,10 +1,17 @@
-<div class="card">
+<div class="card mt-3 mb-3">
     <div class="card-header">
-        Pożyczki
+        <h2><i class="fas fa-money-bill pr-2"></i>POŻYCZKI</h2>
     </div>
-    <ul class="list-group list-group-flush">
-        <li *ngFor="let loan of loansList">
-            bank: {{loan.bankName}}, kwota: {{loan.amount}}, rata: {{loan.installmentAmount}}
-        </li>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-loan *ngFor="let loan of loansList"
+                                 (edit)="edit(loan)"
+                                 [editable]="true"
+                                 [loan]="loan"></app-loan>
     </ul>
 </div>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(null)">Dodaj</button>
+

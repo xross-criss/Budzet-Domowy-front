@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Dodaj nowy przychód</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="dataForm">
+        <div class="form-group">
+            <label for="loanBank">bank</label>
+            <input formControlName="bankName" type="text" id="loanBank" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="loanAmount">kwota całkowita pożyczki:</label>
+            <input formControlName="amount" type="text" id="loanAmount" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="loanInstallmentAmount">kwota raty:</label>
+            <input formControlName="installmentAmount" type="text" id="loanInstallmentAmount" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="annualLoanPercentage">oprocentowanie</label>
+            <input formControlName="annualLoanPercentage" type="text" id="annualLoanPercentage" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="startDate">Data rozpoczęcia</label>
+            <input formControlName="startDate" type="text" id="startDate" class="form-control"
+                   placeholder="1" required=""
+                   autofocus="">
+            <label for="endDate">Data zakończenia</label>
+            <input formControlName="endDate" type="text" id="endDate" class="form-control"
+                   required=""
+                   autofocus="">
+<!--            <label for="loanStartDate">Data rozpoczęcia</label>-->
+<!--            <div class="input-group">-->
+<!--                <input id="loanStartDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
+<!--                       #dp="ngbDatepicker">-->
+<!--                <div class="input-group-append">-->
+<!--                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
+<!--                            type="button"></button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <label for="loanEndDate">Data zakończenia</label>-->
+<!--            <div class="input-group">-->
+<!--                <input id="loanEndDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
+<!--                       #dp="ngbDatepicker">-->
+<!--                <div class="input-group-append">-->
+<!--                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
+<!--                            type="button"></button>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+</div>
