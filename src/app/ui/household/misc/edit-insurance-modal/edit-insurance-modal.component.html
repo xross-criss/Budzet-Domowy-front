@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{isEditAction()}} ubezpieczenie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="dataForm">
+        <div class="form-group">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Rodzaj ubezpieczenia:</label>
+            <select formControlName="type" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Wybierz...</option>
+                <option value="LIFE">Na życie</option>
+                <option value="HOUSE">Domu</option>
+                <option value="CAR">Samochodu</option>
+                <option value="HOUSE">Inne</option>
+            </select>
+            <label for="insuranceName">nazwa</label>
+            <input formControlName="name" type="text" id="insuranceName" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="insuranceDescription">opis</label>
+            <input formControlName="description" type="text" id="insuranceDescription" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="insuranceAmount">kwota</label>
+            <input formControlName="amount" type="text" id="insuranceAmount" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="insurancePeriod">okres płatności (co ile płatność jest przeprowadzana - jeśli co kwartał, należy wpisać liczbę 3)</label>
+            <input formControlName="period" type="text" id="insurancePeriod" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="endDate">Data zakończenia</label>
+            <input formControlName="endDate" type="text" id="endDate" class="form-control"
+                   required=""
+                   autofocus="">
+<!--            <label for="insuranceEndDate">Data zakończenia</label>-->
+<!--            <div class="input-group">-->
+<!--                <input id="insuranceEndDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
+<!--                       #dp="ngbDatepicker" formControlName="endDate">-->
+<!--                <div class="input-group-append">-->
+<!--                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
+<!--                            type="button"></button>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div class="input-group" *ngIf="dataForm.get('type').value === 'CAR'">
+                <label for="insuranceLP">Numer rejestracyjny pojazdu:</label>
+                <input formControlName="vehicleLP" type="text" id="insuranceLP" class="form-control"
+                       required=""
+                       autofocus="">
+                <label for="vehicleTID">Data zakończenia</label>
+                <input formControlName="vehicleTID" type="text" id="vehicleTID" class="form-control"
+                       required=""
+                       autofocus="">
+<!--                <label for="insuranceTID">Data przeglądu technicznego</label>-->
+<!--                <div class="input-group">-->
+<!--                    <input id="insuranceTID" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
+<!--                           #dp="ngbDatepicker" formControlName="vehicleTID">-->
+<!--                    <div class="input-group-append">-->
+<!--                        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
+<!--                                type="button"></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+</div>

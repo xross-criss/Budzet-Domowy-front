@@ -30,6 +30,7 @@ import { BalanceComponent } from './balance/balance.component';
 import { LoanComponent } from './loan/loan.component';
 import { InvestmentComponent } from './investment/investment.component';
 import { ExpenseComponent } from './expense/expense.component';
+import { InsuranceComponent } from './insurance/insurance.component';
 
 @NgModule({
     declarations: [
@@ -57,7 +58,8 @@ import { ExpenseComponent } from './expense/expense.component';
         BalanceComponent,
         LoanComponent,
         InvestmentComponent,
-        ExpenseComponent
+        ExpenseComponent,
+        InsuranceComponent
     ],
     imports: [
         CommonModule,

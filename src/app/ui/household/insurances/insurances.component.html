@@ -1,10 +1,64 @@
-<div class="card">
+<div class="card mt-3 mb-3">
     <div class="card-header">
-        Ubezpieczenia
+        <h2><i class="fas fa-money-bill pr-2"></i>Ubezpieczenia na życie</h2>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let item of insuranceList">
-            {{item.name}}
-        </li>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-insurance *ngFor="let insurance of lifeInsurancesList"
+                    (edit)="edit(insurance)"
+                    [editable]="true"
+                    [insurance]="insurance">
+        </app-insurance>
     </ul>
 </div>
+<div class="card mt-3 mb-3">
+    <div class="card-header">
+        <h2><i class="fas fa-money-bill pr-2"></i>Ubezpieczenia pojazdów</h2>
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-insurance *ngFor="let insurance of carInsurancesList"
+                    (edit)="edit(insurance)"
+                    [editable]="true"
+                    [insurance]="insurance">
+        </app-insurance>
+    </ul>
+</div>
+<div class="card mt-3 mb-3">
+    <div class="card-header">
+        <h2><i class="fas fa-money-bill pr-2"></i>Ubezpieczenia mieszkaniowe</h2>
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-insurance *ngFor="let insurance of houseInsurancesList"
+                    (edit)="edit(insurance)"
+                    [editable]="true"
+                    [insurance]="insurance">
+        </app-insurance>
+    </ul>
+</div>
+<div class="card mt-3 mb-3">
+    <div class="card-header">
+        <h2><i class="fas fa-money-bill pr-2"></i>Inne ubezpieczenia</h2>
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-insurance *ngFor="let insurance of otherInsurancesList"
+                    (edit)="edit(insurance)"
+                    [editable]="true"
+                    [insurance]="insurance">
+        </app-insurance>
+    </ul>
+</div>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(null)">Dodaj</button>
+
+

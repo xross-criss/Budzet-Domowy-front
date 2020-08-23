@@ -1,0 +1,60 @@
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <h4 class="alert-heading"><span class="float-right cursor-pointer" [hidden]="!editable">
+        <i class="fas fa-edit pr-2" (click)="editAction()"></i>Edytuj</span></h4>
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <strong>Nazwa</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <strong>Koszt</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <strong>Numer rejestracyjny</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <strong>Data przeglądu</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-primary">{{insurance.name}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-success">{{insurance.cost}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-success">{{insurance.vehicleLP}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-success">{{insurance.vehicleTID}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <strong>Opis</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <strong>Data zakończenia</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <strong>Okres płatności</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <!--            <strong>Okres płatności</strong>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-primary">{{insurance.description}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-success">{{insurance.endDate}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-success">{{insurance.period}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <!--            <span class="badge badge-success">{{insurance.endDate}}</span>-->
+        </div>
+    </div>
+</div>
