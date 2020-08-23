@@ -1,0 +1,43 @@
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <h4 class="alert-heading"><i class="fas fa-star pr-2"></i>{{loan.bankName}}<span class="float-right cursor-pointer"
+                                                                                     [hidden]="!editable"><i
+        class="fas fa-edit pr-2" (click)="editAction()"></i>Edytuj</span></h4>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Kwota</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>rata</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{loan.amount}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{loan.installmentAmount}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>oprocentowanie</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Data rozpoczęcia</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Data zakończenia</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{loan.annualLoanPercentage}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{loan.startDate}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{loan.endDate}}</span>
+        </div>
+    </div>
+</div>
