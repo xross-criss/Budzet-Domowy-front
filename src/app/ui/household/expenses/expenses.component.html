@@ -1,16 +1,20 @@
-<div class="card">
+<div class="card mt-3 mb-3">
     <div class="card-header">
-        Wydatki
+        <h2><i class="fas fa-money-bill pr-2"></i>PRZYCHODY</h2>
     </div>
-    <ul class="list-group list-group-flush" *ngIf="expenseCashflowList">
-        <li *ngFor="let cashflow of expenseCashflowList">
-            nazwa: {{cashflow.description}}, kwota: {{cashflow.amount}}
-            <br/>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(cashflow)">Edytuj</button>
-        </li>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-income *ngFor="let cashflow of expensesCashflowList"
+                    (edit)="edit(cashflow)"
+                    [editable]="true"
+                    [cashflow]="cashflow">
+
+        </app-income>
     </ul>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(null)">Dodaj</button>
-
-
 </div>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit" (click)="edit(null)">Dodaj</button>
+
+
