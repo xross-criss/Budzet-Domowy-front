@@ -12,6 +12,7 @@ export class EditCashflowModalComponent implements OnInit {
 
     public cashFlow: Cashflow;
     public dataForm: FormGroup;
+    public isEdit: boolean;
 
     constructor(
         private injector: Injector,
@@ -20,6 +21,7 @@ export class EditCashflowModalComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.isEdit = false;
         this.cashFlow = this.injector.get(Cashflow) || Cashflow.fromObject({});
         this.dataForm = new FormGroup({
             startDate: new FormControl(this.cashFlow.startDate),
@@ -42,6 +44,28 @@ export class EditCashflowModalComponent implements OnInit {
         this.cashFlow.description = this.dataForm.get('description').value;
 
         this.activeModal.close(this.cashFlow);
+    }
+
+    public isEditAction(): string {
+        if (this.cashFlow.category === null || this.cashFlow.category === undefined) {
+            return 'Dodaj';
+        } else {
+            this.isEdit = true;
+            return 'Edytuj';
+        }
+    }
+
+    public isIncomeAction(): string {
+        if (this.isEdit === true) {
+            if (this.cashFlow.category === 'INCOME') {
+                return 'przychód';
+            } else {
+                return 'wydatek';
+            }
+        }
+        else {
+            return 'nowy';
+        }
     }
 
 }
