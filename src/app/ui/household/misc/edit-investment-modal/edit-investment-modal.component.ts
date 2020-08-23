@@ -36,6 +36,14 @@ export class EditInvestmentModalComponent implements OnInit {
         this.activeModal.dismiss();
     }
 
+    public isEditAction(): string {
+        if (this.investment.type === null || this.investment.type === undefined) {
+            return 'Dodaj nową';
+        } else {
+            return 'Edytuj';
+        }
+    }
+
     public close(): void {
 
         this.investment.type = this.dataForm.get('type').value;

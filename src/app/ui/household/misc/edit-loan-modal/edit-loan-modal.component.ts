@@ -2,7 +2,6 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Loan} from '../../../../model/Loan';
-import {CacheService} from '../../../../services/cache.service';
 
 @Component({
     selector: 'app-edit-loan-modal',
@@ -34,6 +33,14 @@ export class EditLoanModalComponent implements OnInit {
 
     public dismiss(): void {
         this.activeModal.dismiss();
+    }
+
+    public isEditAction(): string {
+        if (this.loan.bankName === null || this.loan.bankName === undefined) {
+            return 'Dodaj nową';
+        } else {
+            return 'Edytuj';
+        }
     }
 
     public close(): void {

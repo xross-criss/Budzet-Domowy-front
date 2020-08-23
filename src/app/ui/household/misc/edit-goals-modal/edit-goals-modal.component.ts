@@ -35,6 +35,14 @@ export class EditGoalsModalComponent implements OnInit {
         this.activeModal.dismiss();
     }
 
+    public isEditAction(): string {
+        if (this.goal.category === null || this.goal.category === undefined) {
+            return 'Dodaj';
+        } else {
+            return 'Edytuj';
+        }
+    }
+
     public close(): void {
         this.goal.category = this.dataForm.get('category').value;
         this.goal.amount = this.dataForm.get('amount').value;
