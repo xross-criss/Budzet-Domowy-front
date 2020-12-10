@@ -1,0 +1,33 @@
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <h4 class="alert-heading"><i class="fas fa-star pr-2"></i>{{goal.name}}
+        <span class="float-right cursor-pointer" [hidden]="!editable">
+        <i class="fas fa-edit pr-2" (click)="editAction()"></i>Edytuj</span>
+    </h4>
+    <p>{{goal.description}}</p>
+    <hr>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             [style.width]="goal.percent + '%'"
+             [attr.aria-valuenow]="goal.percent"
+             aria-valuemin="0"
+             aria-valuemax="100">{{goal.percent}}%
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Kwota</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Kategoria</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{goal.amount}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{goal.category}}</span>
+        </div>
+    </div>
+</div>

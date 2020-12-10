@@ -1,0 +1,24 @@
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Nazwa:</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Bank:</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Bilans na koncie:</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{debtCard.name}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{debtCard.bank}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{debtCard.balance}}</span>
+        </div>
+    </div>
+</div>

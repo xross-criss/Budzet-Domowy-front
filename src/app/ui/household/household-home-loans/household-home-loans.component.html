@@ -1,13 +1,10 @@
-<div class="card">
+<div class="card mt-3 mb-3">
     <div class="card-header">
-        Pożyczki
-    </div>
-    <div class="card-body" *ngIf="loading">
-        <app-spinner></app-spinner>
+        <h2><i class="fas fa-money-bill pr-2"></i>{{name}}</h2>
     </div>
     <ul class="list-group list-group-flush">
-        <li *ngFor="let loan of loansList">
-            bank: {{loan.bankName}}, kwota: {{loan.amount}}, rata: {{loan.installmentAmount}}
-        </li>
+        <app-household-home-loan *ngFor="let loan of loansList"
+                        [loan]="loan">
+        </app-household-home-loan>
     </ul>
 </div>

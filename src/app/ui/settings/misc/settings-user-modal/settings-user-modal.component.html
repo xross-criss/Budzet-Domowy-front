@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edytuj dane użytkownika</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="dataForm">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input formControlName="email" type="text" id="email" class="form-control"
+                   required=""
+                   autofocus="">
+            <label for="name">Imię i nazwisko</label>
+            <input formControlName="name" type="text" id="name" class="form-control"
+                   required=""
+                   autofocus="">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Edytuj</button>
+</div>

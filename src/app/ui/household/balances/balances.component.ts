@@ -22,7 +22,7 @@ export class BalancesComponent extends HouseholdLoadableComponent implements OnI
     ) {
         super();
         this.monthsOrder = ['STYCZEN', 'LUTY', 'MARZEC', 'KWIECIEN', 'MAJ', 'CZERWIEC', 'LIPIEC', 'SIERPIEN', 'WRZESIEN', 'PAZDZIERNIK', 'LISTOPAD', 'GRUDZIEN'];
-        this.currentMonth = (new Date().getMonth() + 1);
+        this.currentMonth = (new Date().getMonth());
     }
 
     public ngOnInit(): void {
@@ -31,7 +31,7 @@ export class BalancesComponent extends HouseholdLoadableComponent implements OnI
     }
 
     public generate() {
-        this.balanceService.generate();
+        this.balanceService.generate().subscribe();
 
         this.ngOnInit();
     }

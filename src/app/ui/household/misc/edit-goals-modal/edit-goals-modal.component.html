@@ -13,19 +13,19 @@
                 <option value="SAVINGS">Oszczędnościowy</option>
                 <option value="SHOPPING">Zakupowy</option>
             </select>
-            <label for="goalAmount">kwota</label>
+            <label for="goalAmount">Kwota</label>
             <input formControlName="amount" type="text" id="goalAmount" class="form-control"
                    required=""
                    autofocus="">
-            <label for="goalName">nazwa</label>
+            <label for="goalName">Nazwa</label>
             <input formControlName="name" type="text" id="goalName" class="form-control"
                    required=""
                    autofocus="">
-            <label for="goalDescription">opis</label>
+            <label for="goalDescription">Opis</label>
             <input formControlName="description" type="text" id="goalDescription" class="form-control"
                    required=""
                    autofocus="">
-            <label for="goalPriority">priorytet (1- najwyższy, 10-najniższy)</label>
+            <label for="goalPriority">Priorytet (1- najwyższy, 10-najniższy)</label>
             <input formControlName="priority" type="text" id="goalPriority" class="form-control"
                    required=""
                    autofocus="">
@@ -33,5 +33,5 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+    <button type="button" class="btn btn-outline-dark" (click)="close()">{{isEditAction()}}</button>
 </div>

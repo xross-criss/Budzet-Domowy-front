@@ -1,28 +1,84 @@
 <div class="row">
-    <div class="col-lg-12">
-        <h1><i class="fas fa-cog pr-2"></i>Witaj {{username}} na stronie głównej</h1>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-12 mt-1">
-        Oto twoje podsumowanie:
-    </div>
-    <div class="col-lg-12 mt-1">
-        Przychody: <span class="badge badge-primary">{{summary.income}}</span>
-    </div>
-    <div class="col-lg-12 mt-1">
-        Rozchody: <span class="badge badge-primary">{{summary.burden}}</span>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-12 mt-1">
-        Członkowie twojego gospodarstwa domowego
-    </div>
-    <div class="col-lg-12 mt-1">
-        <li *ngFor="let user of users">
-            login: {{user.login}}, nazwa: {{user.name}}
-        </li>
+    <div class="col-md-12">
+        <div class="jumbotron mt-2 mb-2">
+            <h1 class="display-4">Witaj {{username}} na stronie głównej</h1>
+            <hr class="my-4">
+            <div class="row summary-report">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Oto twoje podsumowanie:</h4>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Bilans:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-primary">{{summary.balance}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Przychody:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-info">{{summary.income}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Wydatki:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-info">{{summary.burden}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Użytkownicy gopodarstwa domowego
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 home-grid">
+                            <div class="card" style="width: 100%;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" *ngFor="let user of users">
+                                        nazwa: {{user.name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row" *ngIf="pieChartData.length===2">
+                        <!--                        <div class="col-md-6">-->
+                        <!--                        </div>-->
+                        <div style="display: block;">
+                            <canvas baseChart
+                                    [data]="pieChartData"
+                                    [labels]="pieChartLabels"
+                                    [chartType]="pieChartType"
+                                    [options]="pieChartOptions"
+                                    [plugins]="pieChartPlugins"
+                                    [legend]="pieChartLegend">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

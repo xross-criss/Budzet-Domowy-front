@@ -1,31 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Investment} from '../../../model/Investment';
-import {InvestmentService} from '../../../services/investment.service';
-import {HouseholdLoadableComponent} from '../household-loadable-component';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {InvestmentCategory} from '../../../model/dictionary/InvestmentCategory';
 
 @Component({
     selector: 'app-household-home-investments',
     templateUrl: './household-home-investments.component.html',
     styleUrls: ['./household-home-investments.component.scss']
 })
-export class HouseholdHomeInvestmentsComponent extends HouseholdLoadableComponent implements OnInit {
+export class HouseholdHomeInvestmentsComponent implements OnInit {
 
-    public investmentsList: Investment[];
+    @Input()
+    public investmentList: Investment[];
 
-    constructor(
-        public investmentService: InvestmentService,
-    ) {
-        super();
+    @Input()
+    public name: string;
+
+    public investmentCategory: InvestmentCategory;
+    public isEmpty: boolean;
+
+    constructor() {
+        this.isEmpty = false;
     }
 
     public ngOnInit(): void {
-        super.ngOnInit();
-    }
-
-    public loadPage(): Observable<any> {
-        return this.investmentService.getInvestmentForCurrentMonth().pipe(tap(investmentsList => this.investmentsList = investmentsList));
+        if (!this.investmentList || this.investmentList.length === 0) {
+            this.isEmpty = true;
+        } else {
+            this.investmentCategory = this.investmentList[0].type;
+        }
     }
 
 }

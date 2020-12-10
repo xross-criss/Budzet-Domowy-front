@@ -1,26 +1,25 @@
-<div class="card">
-    <div class="card-header">
-        Przychody
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <h4 class="alert-heading"><i class="fas fa-star pr-2"></i>{{cashflow.description}}</h4>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Kwota</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Data rozpoczęcia</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Data zakończenia</strong>
+        </div>
     </div>
-    <div class="card-body" *ngIf="loading">
-        <app-spinner></app-spinner>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{cashflow.amount}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{cashflow.startDate}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{cashflow.endDate}}</span>
+        </div>
     </div>
-    <ul class="list-group list-group-flush">
-        <li *ngFor="let cashflow of incomeCashflowList">
-            nazwa: {{cashflow.description}}, kwota: {{cashflow.amount}}
-        </li>
-    </ul>
-</div>
-<div class="card">
-    <div class="card-header">
-        Wydatki
-    </div>
-    <div class="card-body" *ngIf="loading">
-        <app-spinner></app-spinner>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li *ngFor="let cashflow of expenseCashflowList">
-            nazwa: {{cashflow.description}}, kwota: {{cashflow.amount}}
-        </li>
-    </ul>
 </div>

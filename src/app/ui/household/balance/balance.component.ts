@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Balance} from '../../../model/Balance';
-import {BalanceType} from '../../../model/dictionary/BalanceType';
 
 @Component({
     selector: 'app-balance',
@@ -9,12 +8,8 @@ import {BalanceType} from '../../../model/dictionary/BalanceType';
 })
 export class BalanceComponent implements OnInit {
 
-    private predictionType: string = 'PROGNOZA';
-    private generatedType: string = 'WYGENEROWANY';
-    private summaryType: string = 'PODSUMOWANIE';
-
     @Input()
-    public balances: Balance[];
+    public balance: Balance;
 
     @Input()
     public className: string = 'alert-primary';
@@ -22,17 +17,7 @@ export class BalanceComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit(): void {
-    }
-
-    public translateType(type: BalanceType): string {
-        if (type == 'PREDICITON') {
-            return this.predictionType;
-        } else if (type == 'GENERATED') {
-            return this.generatedType;
-        } else {
-            return this.summaryType;
-        }
+    public ngOnInit(): void {
     }
 
 }

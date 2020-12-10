@@ -5,11 +5,14 @@
     <div class="card-body" *ngIf="loading">
         <app-spinner></app-spinner>
     </div>
+    <div class="card-body text-center" *ngIf="!loading && (!lifeInsurancesList || lifeInsurancesList.length === 0)">
+        <i class="fas fa-info-circle pr-2"></i>Brak danych
+    </div>
     <ul class="list-group list-group-flush" *ngIf="!loading">
         <app-insurance *ngFor="let insurance of lifeInsurancesList"
-                    (edit)="edit(insurance)"
-                    [editable]="true"
-                    [insurance]="insurance">
+                       (edit)="edit(insurance)"
+                       [editable]="true"
+                       [insurance]="insurance">
         </app-insurance>
     </ul>
 </div>
@@ -20,11 +23,14 @@
     <div class="card-body" *ngIf="loading">
         <app-spinner></app-spinner>
     </div>
+    <div class="card-body text-center" *ngIf="!loading && (!carInsurancesList || carInsurancesList.length === 0)">
+        <i class="fas fa-info-circle pr-2"></i>Brak danych
+    </div>
     <ul class="list-group list-group-flush" *ngIf="!loading">
         <app-insurance *ngFor="let insurance of carInsurancesList"
-                    (edit)="edit(insurance)"
-                    [editable]="true"
-                    [insurance]="insurance">
+                       (edit)="edit(insurance)"
+                       [editable]="true"
+                       [insurance]="insurance">
         </app-insurance>
     </ul>
 </div>
@@ -35,11 +41,14 @@
     <div class="card-body" *ngIf="loading">
         <app-spinner></app-spinner>
     </div>
+    <div class="card-body text-center" *ngIf="!loading && (!houseInsurancesList || houseInsurancesList.length === 0)">
+        <i class="fas fa-info-circle pr-2"></i>Brak danych
+    </div>
     <ul class="list-group list-group-flush" *ngIf="!loading">
         <app-insurance *ngFor="let insurance of houseInsurancesList"
-                    (edit)="edit(insurance)"
-                    [editable]="true"
-                    [insurance]="insurance">
+                       (edit)="edit(insurance)"
+                       [editable]="true"
+                       [insurance]="insurance">
         </app-insurance>
     </ul>
 </div>
@@ -50,11 +59,14 @@
     <div class="card-body" *ngIf="loading">
         <app-spinner></app-spinner>
     </div>
+    <div class="card-body text-center" *ngIf="!loading && (!otherInsurancesList || otherInsurancesList.length === 0)">
+        <i class="fas fa-info-circle pr-2"></i>Brak danych
+    </div>
     <ul class="list-group list-group-flush" *ngIf="!loading">
         <app-insurance *ngFor="let insurance of otherInsurancesList"
-                    (edit)="edit(insurance)"
-                    [editable]="true"
-                    [insurance]="insurance">
+                       (edit)="edit(insurance)"
+                       [editable]="true"
+                       [insurance]="insurance">
         </app-insurance>
     </ul>
 </div>

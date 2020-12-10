@@ -15,59 +15,50 @@
                 <option value="CAR">Samochodu</option>
                 <option value="HOUSE">Inne</option>
             </select>
-            <label for="insuranceName">nazwa</label>
-            <input formControlName="name" type="text" id="insuranceName" class="form-control"
+            <label for="name">Nazwa</label>
+            <input formControlName="name" type="text" id="name" class="form-control"
                    required=""
                    autofocus="">
-            <label for="insuranceDescription">opis</label>
-            <input formControlName="description" type="text" id="insuranceDescription" class="form-control"
+            <label for="description">Opis</label>
+            <input formControlName="description" type="text" id="description" class="form-control"
                    required=""
                    autofocus="">
-            <label for="insuranceAmount">kwota</label>
-            <input formControlName="amount" type="text" id="insuranceAmount" class="form-control"
+            <label for="cost">Kwota</label>
+            <input formControlName="cost" type="text" id="cost" class="form-control"
                    required=""
                    autofocus="">
-            <label for="insurancePeriod">okres płatności (co ile płatność jest przeprowadzana - jeśli co kwartał, należy wpisać liczbę 3)</label>
-            <input formControlName="period" type="text" id="insurancePeriod" class="form-control"
+            <label for="period">Okres płatności (co ile płatność jest przeprowadzana - jeśli co kwartał, należy wpisać liczbę 3)</label>
+            <input formControlName="period" type="text" id="period" class="form-control"
                    required=""
                    autofocus="">
             <label for="endDate">Data zakończenia</label>
-            <input formControlName="endDate" type="text" id="endDate" class="form-control"
-                   required=""
-                   autofocus="">
-<!--            <label for="insuranceEndDate">Data zakończenia</label>-->
-<!--            <div class="input-group">-->
-<!--                <input id="insuranceEndDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
-<!--                       #dp="ngbDatepicker" formControlName="endDate">-->
-<!--                <div class="input-group-append">-->
-<!--                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
-<!--                            type="button"></button>-->
-<!--                </div>-->
-<!--            </div>-->
-
+            <div class="input-group">
+                <input id="endDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                       #dp1="ngbDatepicker" formControlName="endDate">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dp1.toggle()"
+                            type="button"></button>
+                </div>
+            </div>
             <div class="input-group" *ngIf="dataForm.get('type').value === 'CAR'">
-                <label for="insuranceLP">Numer rejestracyjny pojazdu:</label>
-                <input formControlName="vehicleLP" type="text" id="insuranceLP" class="form-control"
-                       required=""
-                       autofocus="">
-                <label for="vehicleTID">Data zakończenia</label>
+                <label for="vehicleTID">Numer rejestracyjny pojazdu:</label>
                 <input formControlName="vehicleTID" type="text" id="vehicleTID" class="form-control"
                        required=""
                        autofocus="">
-<!--                <label for="insuranceTID">Data przeglądu technicznego</label>-->
-<!--                <div class="input-group">-->
-<!--                    <input id="insuranceTID" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker-->
-<!--                           #dp="ngbDatepicker" formControlName="vehicleTID">-->
-<!--                    <div class="input-group-append">-->
-<!--                        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"-->
-<!--                                type="button"></button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <label for="vehicleLP">Data przeglądu technicznego</label>
+                <div class="input-group">
+                    <input id="vehicleLP" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                           #dp2="ngbDatepicker" formControlName="vehicleLP">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="dp2.toggle()"
+                                type="button"></button>
+                    </div>
+                </div>
             </div>
 
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="close()">Dodaj</button>
+    <button type="button" class="btn btn-outline-dark" (click)="close()">{{isEditAction()}}</button>
 </div>

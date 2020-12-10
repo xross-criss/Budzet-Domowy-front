@@ -9,6 +9,7 @@ import {InvestmentsComponent} from './investments/investments.component';
 import {InsurancesComponent} from './insurances/insurances.component';
 import {LoansComponent} from './loans/loans.component';
 import {BalancesComponent} from './balances/balances.component';
+import {DebtCardsComponent} from './debt-cards/debt-cards.component';
 
 
 const routes: Routes = [{
@@ -38,6 +39,9 @@ const routes: Routes = [{
     }, {
         path: 'balances',
         component: BalancesComponent,
+    }, {
+        path: 'debtcards',
+        component: DebtCardsComponent,
     },
     ]
 }];

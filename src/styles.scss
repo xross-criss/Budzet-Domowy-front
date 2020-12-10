@@ -10,3 +10,11 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "assets/styles/_variables";
 @import "assets/styles/_typo";
 @import "assets/styles/_mixins";
+
+.ng-invalid {
+    border-color: red;
+}
+
+.ng-valid {
+    border-color: green;
+}

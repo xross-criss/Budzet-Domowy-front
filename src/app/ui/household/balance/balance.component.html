@@ -1,19 +1,34 @@
-<ul class="list-group list-group-flush pr-3" [ngClass]="className">
-    <div class="alert m-3" role="alert" *ngFor="let balance of balances">
-        <div class="col-sm-4 text-center">
-            <strong>Data wygenerowania: {{balance.generationDate}}</strong>
+<div class="alert alert-primary m-3" role="alert">
+    <div class="row">
+        <div class="col-sm-6">
+            <strong class="float-right">Data wygenerowania</strong>
         </div>
-        <div class="col-sm-4 text-center">
-            <strong>Przychody: {{balance.income}}</strong>
+        <div class="col-sm-6">
+            {{balance.generationDate}}
         </div>
-        <div class="col-sm-4 text-center">
-            <strong>Wydatki: {{balance.burden}}</strong>
+        <div class="col-sm-6">
+            <strong class="float-right">Przychody</strong>
         </div>
-        <div class="col-sm-4 text-center">
-            <strong>Bilans: {{balance.balance}}</strong>
+        <div class="col-sm-6">
+            {{balance.income}}
         </div>
-        <div class="col-sm-4 text-center">
-            <strong>Typ: {{translateType(balance.type)}}</strong>
+        <div class="col-sm-6">
+            <strong class="float-right">Wydatki</strong>
+        </div>
+        <div class="col-sm-6">
+            {{balance.burden}}
+        </div>
+        <div class="col-sm-6">
+            <strong class="float-right">Bilans</strong>
+        </div>
+        <div class="col-sm-6">
+            {{balance.balance}}
+        </div>
+        <div class="col-sm-6">
+            <strong class="float-right">Typ</strong>
+        </div>
+        <div class="col-sm-6">
+            {{balance.type | dictionary:'balanceType'}}
         </div>
     </div>
-</ul>
+</div>

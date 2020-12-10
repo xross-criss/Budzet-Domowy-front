@@ -23,8 +23,8 @@ export class HouseholdHomeGoalComponent implements OnInit {
     constructor() {
         this.edit = new EventEmitter<Goal>();
     }
-
     public ngOnInit(): void {
+
     }
 
     public editAction(): void {

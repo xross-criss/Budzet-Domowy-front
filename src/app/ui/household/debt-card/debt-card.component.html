@@ -1,0 +1,48 @@
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <h4 class="alert-heading"><span class="float-right cursor-pointer" [hidden]="!editable"><i
+        class="fas fa-edit pr-2" (click)="editAction()"></i>Edytuj</span></h4><br>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Nazwa:</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Bank:</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Bilans na koncie:</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{debtCard.name}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{debtCard.bank}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{debtCard.balance}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <strong>Limit konta:</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Oprocentowanie roczne:</strong>
+        </div>
+        <div class="col-sm-4 text-center">
+            <strong>Oprocentowanie odnowienia kredytu:</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-primary">{{debtCard.limit}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{debtCard.annualPercentage}}</span>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="badge badge-success">{{debtCard.renewalPercentage}}</span>
+        </div>
+    </div>
+</div>

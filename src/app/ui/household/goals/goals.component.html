@@ -1,1 +1,40 @@
-<app-household-home-goals></app-household-home-goals>
+<div class="card mt-3 mb-3">
+    <div class="card-header">
+        <h2><i class="fas fa-money-bill pr-2"></i>Cele Oszczędnościowe</h2>
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <div class="card-body text-center" *ngIf="!loading && (!savingsList || savingsList.length === 0)">
+        <i class="fas fa-info-circle pr-2"></i>Brak danych
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-household-home-goal *ngFor="let goal of savingsList"
+                                 (edit)="edit(goal)"
+                                 [editable]="editable"
+                                 [goal]="goal"></app-household-home-goal>
+    </ul>
+</div>
+
+<div class="card mt-3 mb-3">
+    <div class="card-header">
+        <h2><i class="fas fa-shopping-cart pr-2"></i>Cele Zakupowe</h2>
+    </div>
+    <div class="card-body" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <div class="card-body text-center" *ngIf="!loading && (!shoppingList || shoppingList.length === 0)">
+        <i class="fas fa-info-circle pr-2"></i>Brak danych
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="!loading">
+        <app-household-home-goal *ngFor="let goal of shoppingList"
+                                 (edit)="edit(goal)"
+                                 [editable]="editable"
+                                 className="alert-info"
+                                 [goal]="goal"></app-household-home-goal>
+    </ul>
+</div>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit"
+        [hidden]="addable"
+        (click)="edit(null)">Dodaj</button>

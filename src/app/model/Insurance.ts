@@ -10,7 +10,7 @@ export class Insurance {
         public description: string,
         public period: number,
         public cost: number,
-        public endDate: Date,
+        public endDate: string,
         public name: string,
         public vehicleTID: string,
         public vehicleLP: string,

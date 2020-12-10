@@ -1,13 +1,30 @@
-<div class="card">
-    <div class="card-header">
-        Ubezpieczenia
+<div class="alert m-3" role="alert" [ngClass]="className">
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <strong>Nazwa</strong>
+        </div>
+        <div class="col-sm-3 text-center">
+            <strong>Koszt</strong>
+        </div>
+        <div class="col-sm-3 text-center" [hidden]="!isCarInsurance">
+            <strong>Numer rejestracyjny</strong>
+        </div>
+        <div class="col-sm-3 text-center" [hidden]="!isCarInsurance">
+            <strong>Data przeglądu</strong>
+        </div>
     </div>
-    <div class="card-body" *ngIf="loading">
-        <app-spinner></app-spinner>
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-primary">{{insurance.name}}</span>
+        </div>
+        <div class="col-sm-3 text-center">
+            <span class="badge badge-success">{{insurance.cost}}</span>
+        </div>
+        <div class="col-sm-3 text-center" [hidden]="!isCarInsurance">
+            <span class="badge badge-success">{{insurance.vehicleLP}}</span>
+        </div>
+        <div class="col-sm-3 text-center" [hidden]="!isCarInsurance">
+            <span class="badge badge-success">{{insurance.vehicleTID}}</span>
+        </div>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let item of insuranceList">
-            {{item.name}}
-        </li>
-    </ul>
 </div>

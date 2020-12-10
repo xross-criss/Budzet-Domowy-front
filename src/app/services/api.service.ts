@@ -38,6 +38,19 @@ export class ApiService {
         });
     }
 
+    public put<T>(
+        urlSuffix: string,
+        body: any,
+        params?: HttpParams | {
+            [param: string]: string | string[];
+        },
+    ): Observable<T> {
+        return this.httpClient.put<T>('/api/' + urlSuffix, body, {
+            headers: this.authService.httpHeaders(),
+            params
+        });
+    }
+
     public delete<T>(
         urlSuffix: string,
         params?: HttpParams | {

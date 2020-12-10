@@ -1,7 +1,5 @@
 <div class="alert m-3" role="alert" [ngClass]="className">
     <h4 class="alert-heading"><i class="fas fa-star pr-2"></i>{{goal.name}}
-        <span class="float-right cursor-pointer" [hidden]="!editable">
-        <i class="fas fa-edit pr-2" (click)="editAction()"></i>Edytuj</span>
     </h4>
     <p>{{goal.description}}</p>
     <hr>

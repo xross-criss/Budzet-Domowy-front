@@ -1,7 +1,8 @@
-import {Component, Inject, Injector, OnInit} from '@angular/core';
+import {Component, Injector, OnInit} from '@angular/core';
 import {Cashflow} from '../../../../model/Cashflow';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {DateUtil} from '../../../../commons/utils/date-util';
 
 @Component({
     selector: 'app-edit-cashflow-modal',
@@ -24,10 +25,10 @@ export class EditCashflowModalComponent implements OnInit {
         this.isEdit = false;
         this.cashFlow = this.injector.get(Cashflow) || Cashflow.fromObject({});
         this.dataForm = new FormGroup({
-            startDate: new FormControl(this.cashFlow.startDate),
-            endDate: new FormControl(this.cashFlow.endDate),
-            amount: new FormControl(this.cashFlow.amount),
-            period: new FormControl(this.cashFlow.period),
+            startDate: new FormControl(DateUtil.ngbDateFromString(this.cashFlow.startDate), [Validators.required]),
+            endDate: new FormControl(DateUtil.ngbDateFromString(this.cashFlow.endDate), [Validators.required]),
+            amount: new FormControl(this.cashFlow.amount, [Validators.required, Validators.pattern(/^\d+(,\d+)?$/)]),
+            period: new FormControl(this.cashFlow.period, [Validators.required]),
             description: new FormControl(this.cashFlow.description)
         });
     }
@@ -37,11 +38,14 @@ export class EditCashflowModalComponent implements OnInit {
     }
 
     public close(): void {
-        this.cashFlow.startDate = this.dataForm.get('startDate').value;
-        this.cashFlow.endDate = this.dataForm.get('endDate').value;
-        this.cashFlow.amount = this.dataForm.get('amount').value;
-        this.cashFlow.period = this.dataForm.get('period').value;
-        this.cashFlow.description = this.dataForm.get('description').value;
+        if (this.dataForm.invalid) {
+            return;
+        }
+        const obj: Cashflow = this.dataForm.getRawValue();
+        obj.id = this.cashFlow.id;
+        obj.startDate = DateUtil.ngbDateToString(obj.startDate as any);
+        obj.endDate = DateUtil.ngbDateToString(obj.endDate as any);
+        this.cashFlow = Cashflow.fromObject(obj);
 
         this.activeModal.close(this.cashFlow);
     }
@@ -62,8 +66,7 @@ export class EditCashflowModalComponent implements OnInit {
             } else {
                 return 'wydatek';
             }
-        }
-        else {
+        } else {
             return 'nowy';
         }
     }

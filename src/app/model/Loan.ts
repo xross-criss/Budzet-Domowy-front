@@ -7,8 +7,8 @@ export class Loan {
         public household: Household,
         public bankName: string,
         public annualLoanPercentage: number,
-        public startDate: Date,
-        public endDate: Date,
+        public startDate: string,
+        public endDate: string,
         public amount: number,
         public installmentAmount: number,
     ) {

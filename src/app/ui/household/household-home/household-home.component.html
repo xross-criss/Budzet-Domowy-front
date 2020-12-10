@@ -1,58 +1,127 @@
 <div class="row">
-    <div class="col-lg-12 mt-1">
-        Przychody: <span class="badge badge-primary">{{balance?.income}}</span>
-    </div>
-    <div class="col-lg-12 mt-1">
-        Wydatki: <span class="badge badge-primary">{{balance?.burden}}</span>
-    </div>
-
-    <div class="col-lg-12 mt-1">
-    </div>
-
-    W tym:
-    <div class="col-lg-12 mt-1">
-        Bilans: <span class="badge badge-primary">{{balance?.balance}}</span>
-    </div>
-    <div class="col-lg-12 mt-1">
-        Inwestycje: <span class="badge badge-primary">{{investmentReport?.income}}</span>
-    </div>
-    <div class="col-lg-12 mt-1">
-        Pożyczki: <span class="badge badge-primary">{{loansReport?.burden}}</span>
-    </div>
-    <div class="col-lg-12 mt-1">
-        Ubezpieczenia: <span class="badge badge-primary">{{loansReport?.burden}}</span>
+    <div class="col-md-12">
+        <div class="jumbotron mt-2 mb-2">
+            <h1 class="display-4">Moje Gospodarstwo Domowe<span class="badge ml-4"
+                                                                placement="bottom"
+                                                                ngbTooltip="Bilans gospodarstwa domowego"
+                                                                [class.badge-warning]="balance?.balance < 0"
+                                                                [class.badge-primary]="balance?.balance === 0"
+                                                                [class.badge-success]="balance?.balance > 0"
+            >{{balance?.balance}}</span></h1>
+            <hr class="my-4">
+            <div class="row summary-report">
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            Przychody:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-info">{{balance?.income}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Wydatki:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-info">{{balance?.burden}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            Inwestycje:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-primary">{{investmentReport?.income}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Pożyczki:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-primary">{{loansReport?.burden}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Ubezpieczenia:
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-primary">{{insuranceReport?.burden}}</span>
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="col-lg-4">-->
+<!--                    <div style="display: block;">-->
+<!--                        <canvas baseChart-->
+<!--                                [data]="pieChartData"-->
+<!--                                [labels]="pieChartLabels"-->
+<!--                                [chartType]="pieChartType"-->
+<!--                                [options]="pieChartOptions"-->
+<!--                                [plugins]="pieChartPlugins"-->
+<!--                                [legend]="pieChartLegend">-->
+<!--                        </canvas>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-lg-12 mt-1">
-        Płatności z obecnego miesiąca
+    <div class="col-lg-6 home-grid" *ngIf="incomeCashflowList && incomeCashflowList.length > 0">
+        <app-household-home-cashflows [cashflowList]="incomeCashflowList"
+                                      [name]="'Przychody'"></app-household-home-cashflows>
     </div>
-    <div class="col-lg-4 mt-1">
-        <app-household-home-insurance></app-household-home-insurance>
+    <div class="col-lg-6 home-grid" *ngIf="expenseCashflowList && expenseCashflowList.length > 0">
+        <app-household-home-cashflows [cashflowList]="expenseCashflowList"
+                                      [name]="'Wydatki'"></app-household-home-cashflows>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-4 mt-1">
-        <app-household-home-investments></app-household-home-investments>
+    <div class="col-lg-6 home-grid" *ngIf="lifeInsurancesList && lifeInsurancesList.length > 0">
+        <app-household-home-insurances [insurancesList]="lifeInsurancesList"
+                                       [name]="'Ubezpieczenia na życie'"></app-household-home-insurances>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-4 mt-1">
-        <app-household-home-loans></app-household-home-loans>
+    <div class="col-lg-6 home-grid" *ngIf="houseInsurancesList && houseInsurancesList.length > 0">
+        <app-household-home-insurances [insurancesList]="houseInsurancesList"
+                                       [name]="'Ubezpieczenia mieszkaniowe'"></app-household-home-insurances>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-4 mt-1">
-        <app-household-home-debt-cards></app-household-home-debt-cards>
+    <div class="col-lg-6 home-grid" *ngIf="carInsurancesList && carInsurancesList.length > 0">
+        <app-household-home-insurances [insurancesList]="carInsurancesList"
+                                       [name]="'Ubezpieczenia pojazdów'"></app-household-home-insurances>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-4 mt-1">
-        <app-household-home-cashflow></app-household-home-cashflow>
+    <div class="col-lg-6 home-grid" *ngIf="otherInsurancesList && otherInsurancesList.length > 0">
+        <app-household-home-insurances [insurancesList]="otherInsurancesList"
+                                       [name]="'Inne ubezpieczenia'"></app-household-home-insurances>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="investmentList && investmentList.length > 0">
+        <app-household-home-investments [investmentList]="investmentList"
+                                        [name]="'Inwestycje'"></app-household-home-investments>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="stockInvestmentList && stockInvestmentList.length > 0">
+        <app-household-home-investments [investmentList]="stockInvestmentList"
+                                        [name]="'Lokaty'"></app-household-home-investments>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="stockDynamicInvestmentList && stockDynamicInvestmentList.length > 0">
+        <app-household-home-investments [investmentList]="stockDynamicInvestmentList"
+                                        [name]="'Lokaty dynamiczne'"></app-household-home-investments>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="loansList && loansList.length > 0">
+        <app-household-home-loans [loansList]="loansList"
+                                  [name]="'Pożyczki'"></app-household-home-loans>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="shoppingList && shoppingList.length > 0">
+        <app-household-home-goals [goalsList]="shoppingList"
+                                  [name]="'Cele zakupowe'"></app-household-home-goals>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="savingsList && savingsList.length > 0">
+        <app-household-home-goals [goalsList]="savingsList"
+                                  [name]="'Cele oszczędnościowe'"></app-household-home-goals>
+    </div>
+    <div class="col-lg-6 home-grid" *ngIf="debtCardList && debtCardList.length > 0">
+        <app-household-home-debt-cards [debtCardsList]="debtCardList"
+                                       [name]="'Karty Kredytowe'"></app-household-home-debt-cards>
     </div>
 </div>

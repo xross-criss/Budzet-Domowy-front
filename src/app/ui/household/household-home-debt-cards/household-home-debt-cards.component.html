@@ -1,13 +1,10 @@
-<div class="card">
+<div class="card mt-3 mb-3">
     <div class="card-header">
-        Karty Kredytowe
-    </div>
-    <div class="card-body" *ngIf="loading">
-        <app-spinner></app-spinner>
+        <h2><i class="fas fa-money-bill pr-2"></i>{{name}}</h2>
     </div>
     <ul class="list-group list-group-flush">
-        <li *ngFor="let debtCard of debtCardsList">
-            bank: {{debtCard.bank}}, kwota dostępna: {{debtCard.balance}}, limit: {{debtCard.limit}}
-        </li>
+        <app-household-home-debt-card *ngFor="let debtCard of debtCardsList"
+                                      [debtCard]="debtCard">
+        </app-household-home-debt-card>
     </ul>
 </div>

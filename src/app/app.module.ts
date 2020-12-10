@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptor} from './guard/token-interceptor';
 import {LoginModule} from './ui/login/login.module';
 import {HouseholdModule} from './ui/household/household.module';
+import {SignUpModule} from './ui/sign-up/sign-up.module';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import {HouseholdModule} from './ui/household/household.module';
         SettingsModule,
         LoginModule,
         HouseholdModule,
+        SignUpModule,
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],

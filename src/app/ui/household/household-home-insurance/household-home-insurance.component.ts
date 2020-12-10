@@ -1,8 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {InsuranceService} from '../../../services/insurance.service';
-import {HouseholdLoadableComponent} from '../household-loadable-component';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Insurance} from '../../../model/Insurance';
 
 @Component({
@@ -10,22 +6,34 @@ import {Insurance} from '../../../model/Insurance';
     templateUrl: './household-home-insurance.component.html',
     styleUrls: ['./household-home-insurance.component.scss']
 })
-export class HouseholdHomeInsuranceComponent extends HouseholdLoadableComponent implements OnInit {
+export class HouseholdHomeInsuranceComponent implements OnInit {
 
-    public insuranceList: Insurance[];
+    @Input()
+    public insurance: Insurance;
 
-    constructor(
-        public insuranceService: InsuranceService,
-    ) {
-        super();
+    @Input()
+    public className: string = 'alert-primary';
+
+    @Input()
+    public editable: boolean;
+
+    @Output()
+    public edit: EventEmitter<Insurance>;
+
+    public isCarInsurance: boolean = false;
+
+    constructor() {
+        this.edit = new EventEmitter<Insurance>();
     }
 
-    public ngOnInit(): void {
-        super.ngOnInit();
+    ngOnInit(): void {
+        if (this.insurance.type === 'CAR') {
+            this.isCarInsurance = true;
+        }
     }
 
-    public loadPage(): Observable<any> {
-        return this.insuranceService.getInsuranceForCurrentMonth().pipe(tap(insuranceList => this.insuranceList = insuranceList));
+    public editAction(): void {
+        this.edit.emit(this.insurance);
     }
 
 }

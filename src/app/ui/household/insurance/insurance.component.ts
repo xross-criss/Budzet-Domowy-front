@@ -20,11 +20,16 @@ export class InsuranceComponent implements OnInit {
     @Output()
     public edit: EventEmitter<Insurance>;
 
+    public isCarInsurance: boolean = false;
+
     constructor() {
         this.edit = new EventEmitter<Insurance>();
     }
 
     ngOnInit(): void {
+        if (this.insurance.type === 'CAR') {
+            this.isCarInsurance = true;
+        }
     }
 
     public editAction(): void {

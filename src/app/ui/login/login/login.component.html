@@ -44,16 +44,22 @@
                  height="72">
             <h1 class="h3 mb-3 font-weight-normal">Zaloguj się do serwisu</h1>
             <label for="dsdsd" class="sr-only">Nazwa użytkownika</label>
-            <input formControlName="username" type="text" id="dsdsd" class="form-control" placeholder="Nazwa użytkownika" required=""
+            <input formControlName="username" type="text" id="dsdsd" class="form-control"
+                   placeholder="Nazwa użytkownika" required=""
                    autofocus="">
             <label for="inputPassword" class="sr-only">Hasło</label>
-            <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input formControlName="password" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required="">
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()" [disabled]="!loginForm.valid" *ngIf="!loading">Zaloguj</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()"
+                    [disabled]="!loginForm.valid" *ngIf="!loading">Zaloguj
+            </button>
+            <a class="h8 mb-3 font-weight-normal" (click)="register()">Nie masz jeszcze konta? Zarejestruj
+                się</a>
             <div class="login-spinner" *ngIf="loading">
                 <span class="sr-only">Logowanie...</span>
             </div>

@@ -35,7 +35,7 @@ export class ExpensesComponent extends HouseholdLoadableComponent implements OnI
         return this.cashflowService.getCashflowList().pipe(tap((expensesList: Cashflow[]) => {
             this.expensesCashflowList = [];
             for (let cashflow of expensesList) {
-                if (cashflow.category == 'expenses') {
+                if (cashflow.category == 'EXPENSE') {
                     this.expensesCashflowList.push(cashflow);
                 }
             }

@@ -25,5 +25,17 @@ export class UserService {
         );
     }
 
+    public registerUser(user: User): Observable<User> {
+        return this.apiService.put<User>('user', user);
+    }
 
+    public updateUser(user: User): Observable<User> {
+        return this.apiService.post<User>('user', user);
+    }
+
+    public removeUserFromHousehold(user: User): Observable<User> {
+        return this.apiService.get<User>('user/removeUser', {'login': user.login});
+
+
+    }
 }

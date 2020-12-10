@@ -5,13 +5,13 @@ export class Cashflow {
 
     constructor(
         public amount: number,
-        public category: string,
+        public category: CashflowCategory,
         public description: string,
-        public endDate: Date,
+        public endDate: string,
         public household: Household,
         public id: number,
         public period: number,
-        public startDate: Date,
+        public startDate: string,
     ) {
     }
 

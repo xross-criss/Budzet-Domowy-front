@@ -1,14 +1,10 @@
-<div class="card">
+<div class="card mt-3 mb-3">
     <div class="card-header">
-        Inwestycje
-    </div>
-    <div class="card-body" *ngIf="loading">
-        <app-spinner></app-spinner>
+        <h2><i class="fas fa-money-bill pr-2"></i>{{name}}</h2>
     </div>
     <ul class="list-group list-group-flush">
-        <li *ngFor="let investment of investmentsList">
-            nazwa: {{investment.name}}, kwota: {{investment.amount}}, procent: {{investment.investmentPercentage}}, data
-            zakończenia: {{investment.endDate}}
-        </li>
+        <app-investment *ngFor="let investment of investmentList"
+                       [investment]="investment">
+        </app-investment>
     </ul>
 </div>

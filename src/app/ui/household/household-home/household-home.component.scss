@@ -1,0 +1,12 @@
+.home-grid {
+    padding: 12px;
+}
+
+.summary-report {
+    .row {
+        .col-md-6:first-child {
+            font-weight: bolder;
+            font-size: large;
+        }
+    }
+}

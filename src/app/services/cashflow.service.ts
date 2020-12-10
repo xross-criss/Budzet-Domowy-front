@@ -16,7 +16,7 @@ export class CashflowService {
     }
 
     public getCashflowListWithCategory(category: any): Observable<Cashflow[]> {
-        return this.apiService.get<Cashflow[]>('cashflow', {cat: 'category'}).pipe(map(Cashflow.fromList));
+        return this.apiService.get<Cashflow[]>('cashflow', {'category': category}).pipe(map(Cashflow.fromList));
     }
 
     public getCashflowForCurrentMonth(): Observable<Cashflow[]> {
@@ -27,7 +27,7 @@ export class CashflowService {
         return this.apiService.get<Report>('cashflow/report');
     }
 
-    public updateCashflow(cashflow:Cashflow): Observable<Cashflow> {
+    public updateCashflow(cashflow: Cashflow): Observable<Cashflow> {
         return this.apiService.post('cashflow', cashflow);
     }
 
